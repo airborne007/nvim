@@ -61,7 +61,8 @@ map("n", "s=", "<C-w>=", opt)
 local pluginKeys = {}
 
 -- nvimTree
-map('n', '<F3>', ':NvimTreeToggle<CR>', opt)
+map('n', '<F2>', ':NvimTreeToggle<CR>', opt)
+map('n', '<F4>', ':NvimTreeFindFileToggle<CR>', opt)
 
 -- bufferline
 -- Buffer nav
