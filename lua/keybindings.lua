@@ -115,13 +115,6 @@ pluginKeys.mapgit = function(mapbuf)
   map({ 'o', 'x' }, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
 end
 
-
--- 代码注释插件 Comment
--- see ./lua/plugin-config/comment.lua
--- ctrl + /
-map("n", "<C-_>", "gcc", { noremap = false })
-map("v", "<C-_>", "gc", { noremap = false })
-
 -- Telescope
 map("n", "<leader>e", ":Telescope find_files<CR>", opt)
 map("n", "<leader>f", ":Telescope live_grep<CR>", opt)
@@ -161,33 +154,6 @@ pluginKeys.maplsp = function(mapbuf)
   -- mapbuf('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opt)
   -- mapbuf('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opt)
   -- mapbuf('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opt)
-end
-
--- nvim-cmp 自动补全
-pluginKeys.cmp = function(cmp)
-  return {
-    -- 上一个
-    ['<C-k>'] = cmp.mapping.select_prev_item(),
-    -- 下一个
-    ['<C-j>'] = cmp.mapping.select_next_item(),
-    -- 出现补全
-    ['<A-.>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
-    -- 取消
-    ['<A-,>'] = cmp.mapping({
-      i = cmp.mapping.abort(),
-      c = cmp.mapping.close(),
-    }),
-    -- 确认
-    -- Accept currently selected item. If none selected, `select` first item.
-    -- Set `select` to `false` to only confirm explicitly selected items.
-    ['<CR>'] = cmp.mapping.confirm({
-      select = true,
-      behavior = cmp.ConfirmBehavior.Replace
-    }),
-    -- ['<C-y>'] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
-    ['<C-u>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
-    ['<C-d>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
-  }
 end
 
 return pluginKeys

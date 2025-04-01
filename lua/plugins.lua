@@ -2,7 +2,7 @@
 -- ~/.local/share/nvim/lazy/lazy.nvim
 -- 自动安装 Lazy
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
+if not vim.fn.isdirectory(lazypath) then
   vim.fn.system({
     "git",
     "clone",
@@ -23,10 +23,7 @@ require("lazy").setup({
   'nvim-tree/nvim-web-devicons',
 
   -- Colorscheme
-  'navarasu/onedark.nvim',
-  'sainnhe/everforest',
-  'ellisonleao/gruvbox.nvim',
-  'folke/tokyonight.nvim',
+  require('plugin-config.themery'),
 
   -- UI
   require('plugin-config.nvim-tree'),
@@ -41,7 +38,6 @@ require("lazy").setup({
   require('plugin-config.comment'),
   require('plugin-config.flash'),
   require('plugin-config.trouble'),
-  require('plugin-config.marks'),
   'hrsh7th/vim-vsnip',
   'rafamadriz/friendly-snippets',
   -- 'Exafunction/codeium.vim',
@@ -62,7 +58,6 @@ require("lazy").setup({
   { 'neovim/nvim-lspconfig' },
 
   -- Autocomplete
-  require('plugin-config.nvim-cmp'),
+  require('plugin-config.blink-cmp'),
   require("plugin-config.which-key"),
-  'hrsh7th/cmp-vsnip',
 })

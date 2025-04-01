@@ -40,6 +40,7 @@ local servers = {
   lua_ls = require("lsp.lua"),
   bashls = require("lsp.bashls"),
   jsonls = require("lsp.jsonls"),
+  buf_ls = require("lsp.bufls"),
 }
 
 local ensure_installed = { type = "list" }
