@@ -45,6 +45,7 @@ require("lazy").setup({
 
   -- Git
   require('plugin-config.gitsigns'),
+  require('plugin-config.advanced-git-search'),
 
   -- Fuzzy Search
   require('plugin-config.telescope'),

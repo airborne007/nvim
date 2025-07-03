@@ -120,6 +120,10 @@ map("n", "<leader>f", ":Telescope live_grep<CR>", opt)
 map("n", "<leader>b", ":Telescope buffers<CR>", opt)
 map("n", "<leader>s", ":Telescope lsp_document_symbols<CR>", opt)
 
+-- Advanced Git Search
+map("n", "<leader>gs", ":AdvancedGitSearch diff_commit_file<CR>", opt)
+map("v", "<leader>gs", ":AdvancedGitSearch diff_commit_line<CR>", opt)
+
 -- Trouble
 vim.keymap.set("n", "<leader>xx", function() require("trouble").toggle() end)
 vim.keymap.set("n", "<leader>xw", function() require("trouble").toggle("workspace_diagnostics") end)
