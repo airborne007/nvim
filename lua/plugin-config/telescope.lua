@@ -51,8 +51,12 @@ function M.config()
         -- theme = "dropdown", -- 可选参数： dropdown, cursor, ivy
       }
     },
-    extensions = {},
+    extensions = {
+      advanced_git_search = {}
+    },
   })
+
+  require("telescope").load_extension("advanced_git_search")
 
   pcall(telescope.load_extension, "env")
 end

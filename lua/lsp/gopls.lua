@@ -13,12 +13,7 @@ function OrgImports(wait_ms)
   end
 end
 
-local util = require "lspconfig/util"
 local opts = {
-  cmd = { "gopls", "serve" },
-  filetypes = { "go", "gomod" },
-  root_dir = util.root_pattern("go.work", "go.mod", ".git"),
-  single_file_support = true,
   settings = {
     gopls = {
       analyses = {

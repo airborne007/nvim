@@ -95,30 +95,36 @@ pluginKeys.mapgit = function(mapbuf)
     end
   end)
 
+
   -- Actions
-  mapbuf('n', '<leader>hs', gitsigns.stage_hunk)
-  mapbuf('n', '<leader>hr', gitsigns.reset_hunk)
-  mapbuf('v', '<leader>hs', function() gitsigns.stage_hunk { vim.fn.line('.'), vim.fn.line('v') } end)
-  mapbuf('v', '<leader>hr', function() gitsigns.reset_hunk { vim.fn.line('.'), vim.fn.line('v') } end)
-  mapbuf('n', '<leader>hS', gitsigns.stage_buffer)
-  mapbuf('n', '<leader>hu', gitsigns.undo_stage_hunk)
-  mapbuf('n', '<leader>hR', gitsigns.reset_buffer)
-  mapbuf('n', '<leader>hp', gitsigns.preview_hunk)
-  mapbuf('n', '<leader>hb', function() gitsigns.blame_line { full = true } end)
+  -- mapbuf('n', '<leader>hs', gitsigns.stage_hunk)
+  -- mapbuf('n', '<leader>hr', gitsigns.reset_hunk)
+  -- mapbuf('v', '<leader>hs', function() gitsigns.stage_hunk { vim.fn.line('.'), vim.fn.line('v') } end)
+  -- mapbuf('v', '<leader>hr', function() gitsigns.reset_hunk { vim.fn.line('.'), vim.fn.line('v') } end)
+  -- mapbuf('n', '<leader>hS', gitsigns.stage_buffer)
+  -- mapbuf('n', '<leader>hu', gitsigns.undo_stage_hunk)
+  -- mapbuf('n', '<leader>hR', gitsigns.reset_buffer)
+  -- mapbuf('n', '<leader>hp', gitsigns.preview_hunk)
+  -- mapbuf('n', '<leader>hb', function() gitsigns.blame_line { full = true } end)
   mapbuf('n', '<leader>tb', gitsigns.toggle_current_line_blame)
-  mapbuf('n', '<leader>hd', gitsigns.diffthis)
-  mapbuf('n', '<leader>hD', function() gitsigns.diffthis('~') end)
-  mapbuf('n', '<leader>td', gitsigns.toggle_deleted)
+  -- mapbuf('n', '<leader>hd', gitsigns.diffthis)
+  -- mapbuf('n', '<leader>hD', function() gitsigns.diffthis('~') end)
+  -- mapbuf('n', '<leader>td', gitsigns.toggle_deleted)
 
   -- Text object
-  map({ 'o', 'x' }, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
+  -- map({ 'o', 'x' }, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
 end
+
 
 -- Telescope
 map("n", "<leader>e", ":Telescope find_files<CR>", opt)
 map("n", "<leader>f", ":Telescope live_grep<CR>", opt)
 map("n", "<leader>b", ":Telescope buffers<CR>", opt)
 map("n", "<leader>s", ":Telescope lsp_document_symbols<CR>", opt)
+
+-- Advanced Git Search
+map("n", "<leader>gs", ":AdvancedGitSearch diff_commit_file<CR>", opt)
+map("v", "<leader>gs", ":AdvancedGitSearch diff_commit_line<CR>", opt)
 
 -- Trouble
 vim.keymap.set("n", "<leader>xx", function() require("trouble").toggle() end)

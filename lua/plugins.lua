@@ -40,11 +40,12 @@ require("lazy").setup({
   require('plugin-config.trouble'),
   'hrsh7th/vim-vsnip',
   'rafamadriz/friendly-snippets',
-  'Exafunction/codeium.vim',
+  require('plugin-config.windsurf'),
   'machakann/vim-sandwich',
 
   -- Git
   require('plugin-config.gitsigns'),
+  require('plugin-config.advanced-git-search'),
 
   -- Fuzzy Search
   require('plugin-config.telescope'),

@@ -1,20 +1,15 @@
+-- 检测并加载mason
 local status, mason = pcall(require, "mason")
 if not status then
   vim.notify("Plugin `mason.nvim` not found")
   return
 end
 
+-- 检测并加载mason-lspconfig
 local mason_lspconfig
 status, mason_lspconfig = pcall(require, "mason-lspconfig")
 if not status then
   vim.notify("Plugin `mason-lspconfig` not found")
-  return
-end
-
-local lspconfig
-status, lspconfig = pcall(require, "lspconfig")
-if not status then
-  vim.notify("Plugin `lspconfig` not found")
   return
 end
 
@@ -40,7 +35,7 @@ local servers = {
   lua_ls = require("lsp.lua"),
   bashls = require("lsp.bashls"),
   jsonls = require("lsp.jsonls"),
-  buf_ls = require("lsp.bufls"),
+  -- buf_ls = require("lsp.bufls"),
 }
 
 local ensure_installed = { type = "list" }
@@ -50,10 +45,11 @@ end
 
 mason_lspconfig.setup({
   ensure_installed = ensure_installed,
-  automatic_installation = true,
+  automatic_enable = false,
 })
 
 -- 加载配置
 for name, config in pairs(servers) do
-  lspconfig[name].setup(config)
+  vim.lsp.config(name, config)
+  vim.lsp.enable(name)
 end
