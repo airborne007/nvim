@@ -61,4 +61,7 @@ require("lazy").setup({
   -- Autocomplete
   require('plugin-config.blink-cmp'),
   require("plugin-config.which-key"),
+
+  -- AI
+  require('plugin-config.gemini-cli'),
 })

@@ -74,6 +74,11 @@ map("n", "<leader>c", ":bd<CR>", opt)
 map('n', '<A-d>', '<CMD>lua require("FTerm").toggle()<CR>', opt)
 map('t', '<A-d>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>', opt)
 
+-- gemini-cli
+map("n", "<leader>g", "<cmd>Gemini toggle<cr>", { desc = "Toggle Gemini CLI" })
+map({"n", "v"}, "<leader>ga", "<cmd>Gemini ask<cr>", { desc = "Ask Gemini" })
+map("n", "<leader>gf", "<cmd>Gemini add_file<cr>", { desc = "Add File" })
+
 -- gitsigns
 pluginKeys.mapgit = function(mapbuf)
   local gitsigns = require('gitsigns')
