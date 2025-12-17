@@ -1,96 +1,239 @@
--- setting leader key to " "
+--[[
+Keybindings configuration file
+Keybindings are grouped by function to improve readability and maintainability
+--]]
+
+-- Set leader key to space
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- 本地变量
-local map = vim.keymap.set
+-- Local variable definitions
+local map = vim.keymap.set  -- Alias for keymap function
 
-local opt = {
-  noremap = true,
-  silent = true
+-- Default keybinding options
+local default_opts = {
+  noremap = true,  -- Non-recursive mapping
+  silent = true    -- Do not show command in command-line
 }
 
--- Modes
---   normal_mode = "n",
---   insert_mode = "i",
---   visual_mode = "v",
---   visual_block_mode = "x",
---   term_mode = "t",
---   command_mode = "c",
+-- Mode descriptions
+-- n: normal_mode
+-- i: insert_mode
+-- v: visual_mode
+-- x: visual_block_mode
+-- t: term_mode
+-- c: command_mode
 
-------------------------------------------------------------------
--- Clean search (highlight)
-map("n", "<leader><space>", ":noh<CR>", opt)
--- visual模式下缩进代码
-map("v", "<", "<gv", opt)
-map("v", ">", ">gv", opt)
--- 上下移动选中文本
-map("v", "J", ":move '>+1<CR>gv-gv", opt)
-map("v", "K", ":move '<-2<CR>gv-gv", opt)
 
--- 在visual mode 里粘贴不要复制
-map("v", "p", '"_dP', opt)
+-- ============================================ 
+-- Basic Editing Keybindings
+-- ============================================ 
 
-------------------------------------------------------------------
--- windows 分屏快捷键
-map("n", "<leader>h", ":split<CR>", opt)
-map("n", "<leader>v", ":vsplit<CR>", opt)
+-- Clear search highlight
+map("n", "<leader><space>", ":noh<CR>", {
+  noremap = true,
+  silent = true,
+  desc = "Clear search highlight"
+})
 
--- 关闭当前
-map("n", "sc", "<C-w>c", opt)
--- 关闭其他
-map("n", "so", "<C-w>o", opt) -- close others
--- ctrl + hjkl  窗口之间跳转
-map("n", "<C-h>", "<C-w>h", opt)
-map("n", "<C-j>", "<C-w>j", opt)
-map("n", "<C-k>", "<C-w>k", opt)
-map("n", "<C-l>", "<C-w>l", opt)
+-- Indent code in visual mode (maintaining selection)
+map("v", "<", "<gv", {
+  noremap = true,
+  silent = true,
+  desc = "Indent left"
+})
+map("v", ">", ">gv", {
+  noremap = true,
+  silent = true,
+  desc = "Indent right"
+})
 
--- 左右比例控制
-map("n", "<C-Left>", ":vertical resize -2<CR>", opt)
-map("n", "<C-Right>", ":vertical resize +2<CR>", opt)
--- 上下比例
-map("n", "<C-Down>", ":resize +2<CR>", opt)
-map("n", "<C-Up>", ":resize -2<CR>", opt)
--- 相等比例
-map("n", "s=", "<C-w>=", opt)
+-- Move selected text up/down in visual mode
+map("v", "J", ":move '>+1<CR>gv-gv", {
+  noremap = true,
+  silent = true,
+  desc = "Move selected text down"
+})
+map("v", "K", ":move '<-2<CR>gv-gv", {
+  noremap = true,
+  silent = true,
+  desc = "Move selected text up"
+})
 
---------------------------------------------------------------------
+-- Paste without yanking the replaced text in visual mode
+map("v", "p", '"_dP', {
+  noremap = true,
+  silent = true,
+  desc = "Paste without yanking replaced text"
+})
 
--- 插件快捷键
+
+-- ============================================ 
+-- Window Management Keybindings
+-- ============================================ 
+
+-- Create new window
+map("n", "<leader>h", ":split<CR>", {
+  noremap = true,
+  silent = true,
+  desc = "Split window horizontally"
+})
+map("n", "<leader>v", ":vsplit<CR>", {
+  noremap = true,
+  silent = true,
+  desc = "Split window vertically"
+})
+
+-- Close window
+map("n", "sc", "<C-w>c", {
+  noremap = true,
+  silent = true,
+  desc = "Close current window"
+})
+map("n", "so", "<C-w>o", {
+  noremap = true,
+  silent = true,
+  desc = "Close other windows"
+})
+
+-- Switch between windows
+map("n", "<C-h>", "<C-w>h", {
+  noremap = true,
+  silent = true,
+  desc = "Switch to left window"
+})
+map("n", "<C-j>", "<C-w>j", {
+  noremap = true,
+  silent = true,
+  desc = "Switch to bottom window"
+})
+map("n", "<C-k>", "<C-w>k", {
+  noremap = true,
+  silent = true,
+  desc = "Switch to top window"
+})
+map("n", "<C-l>", "<C-w>l", {
+  noremap = true,
+  silent = true,
+  desc = "Switch to right window"
+})
+
+-- Resize windows
+map("n", "<C-Left>", ":vertical resize -2<CR>", {
+  noremap = true,
+  silent = true,
+  desc = "Decrease window width"
+})
+map("n", "<C-Right>", ":vertical resize +2<CR>", {
+  noremap = true,
+  silent = true,
+  desc = "Increase window width"
+})
+map("n", "<C-Down>", ":resize +2<CR>", {
+  noremap = true,
+  silent = true,
+  desc = "Increase window height"
+})
+map("n", "<C-Up>", ":resize -2<CR>", {
+  noremap = true,
+  silent = true,
+  desc = "Decrease window height"
+})
+map("n", "s=", "<C-w>=", {
+  noremap = true,
+  silent = true,
+  desc = "Equalize window sizes"
+})
+
+
+-- ============================================ 
+-- Plugin Keybinding Table
+-- ============================================ 
 local pluginKeys = {}
 
--- nvimTree
-map('n', '<F3>', ':NvimTreeToggle<CR>', opt)
+-- ============================================ 
+-- File Explorer (nvim-tree)
+-- ============================================ 
+map('n', '<F3>', ':NvimTreeToggle<CR>', {
+  noremap = true,
+  silent = true,
+  desc = "Toggle file explorer"
+})
 
--- bufferline
--- Buffer nav
-map("n", "<leader>q", ":BufferLineCyclePrev<CR>", opt)
-map("n", "<leader>w", ":BufferLineCycleNext<CR>", opt)
--- Close buffer
-map("n", "<leader>c", ":bd<CR>", opt)
 
--- floating terminal
-map('n', '<A-d>', '<CMD>lua require("FTerm").toggle()<CR>', opt)
-map('t', '<A-d>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>', opt)
+-- ============================================ 
+-- Buffer Management (bufferline)
+-- ============================================ 
+map("n", "<leader>q", ":BufferLineCyclePrev<CR>", {
+  noremap = true,
+  silent = true,
+  desc = "Switch to previous buffer"
+})
+map("n", "<leader>w", ":BufferLineCycleNext<CR>", {
+  noremap = true,
+  silent = true,
+  desc = "Switch to next buffer"
+})
+map("n", "<leader>c", ":bd<CR>", {
+  noremap = true,
+  silent = true,
+  desc = "Close current buffer"
+})
 
--- gemini-cli
-map("n", "<leader>g", "<cmd>Gemini toggle<cr>", { desc = "Toggle Gemini CLI" })
-map({"n", "v"}, "<leader>ga", "<cmd>Gemini ask<cr>", { desc = "Ask Gemini" })
-map("n", "<leader>gf", "<cmd>Gemini add_file<cr>", { desc = "Add File" })
 
--- gitsigns
+-- ============================================ 
+-- Floating Terminal (FTerm)
+-- ============================================ 
+map('n', '<A-d>', '<CMD>lua require("FTerm").toggle()<CR>', {
+  noremap = true,
+  silent = true,
+  desc = "Toggle floating terminal"
+})
+map('t', '<A-d>', '<CMD>lua require("FTerm").toggle()<CR>', {
+  noremap = true,
+  silent = true,
+  desc = "Toggle floating terminal in terminal"
+})
+
+
+-- ============================================ 
+-- AI Assistant (Gemini CLI)
+-- ============================================ 
+map("n", "<leader>g", "<cmd>Gemini toggle<cr>", {
+  noremap = true,
+  silent = true,
+  desc = "Toggle Gemini CLI"
+})
+map({"n", "v"}, "<leader>ga", "<cmd>Gemini ask<cr>", {
+  noremap = true,
+  silent = true,
+  desc = "Ask Gemini"
+})
+map("n", "<leader>gf", "<cmd>Gemini add_file<cr>", {
+  noremap = true,
+  silent = true,
+  desc = "Add file to Gemini"
+})
+
+
+-- ============================================ 
+-- Git Status Management (gitsigns)
+-- ============================================ 
 pluginKeys.mapgit = function(mapbuf)
   local gitsigns = require('gitsigns')
 
-  -- Navigation
+  -- Navigate to next/previous Git hunk
   mapbuf('n', ']c', function()
     if vim.wo.diff then
       vim.cmd.normal({ ']c', bang = true })
     else
       gitsigns.nav_hunk('next')
     end
-  end)
+  end, {
+    noremap = true,
+    silent = true,
+    desc = "Next Git hunk"
+  })
 
   mapbuf('n', '[c', function()
     if vim.wo.diff then
@@ -98,72 +241,178 @@ pluginKeys.mapgit = function(mapbuf)
     else
       gitsigns.nav_hunk('prev')
     end
-  end)
+  end, {
+    noremap = true,
+    silent = true,
+    desc = "Previous Git hunk"
+  })
 
-
-  -- Actions
-  -- mapbuf('n', '<leader>hs', gitsigns.stage_hunk)
-  -- mapbuf('n', '<leader>hr', gitsigns.reset_hunk)
-  -- mapbuf('v', '<leader>hs', function() gitsigns.stage_hunk { vim.fn.line('.'), vim.fn.line('v') } end)
-  -- mapbuf('v', '<leader>hr', function() gitsigns.reset_hunk { vim.fn.line('.'), vim.fn.line('v') } end)
-  -- mapbuf('n', '<leader>hS', gitsigns.stage_buffer)
-  -- mapbuf('n', '<leader>hu', gitsigns.undo_stage_hunk)
-  -- mapbuf('n', '<leader>hR', gitsigns.reset_buffer)
-  -- mapbuf('n', '<leader>hp', gitsigns.preview_hunk)
-  -- mapbuf('n', '<leader>hb', function() gitsigns.blame_line { full = true } end)
-  mapbuf('n', '<leader>tb', gitsigns.toggle_current_line_blame)
-  -- mapbuf('n', '<leader>hd', gitsigns.diffthis)
-  -- mapbuf('n', '<leader>hD', function() gitsigns.diffthis('~') end)
-  -- mapbuf('n', '<leader>td', gitsigns.toggle_deleted)
-
-  -- Text object
-  -- map({ 'o', 'x' }, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
+  -- Toggle Git blame for the current line
+  mapbuf('n', '<leader>tb', gitsigns.toggle_current_line_blame, {
+    noremap = true,
+    silent = true,
+    desc = "Toggle Git blame for current line"
+  })
 end
 
 
--- Telescope
-map("n", "<leader>e", ":Telescope find_files<CR>", opt)
-map("n", "<leader>f", ":Telescope live_grep<CR>", opt)
-map("n", "<leader>b", ":Telescope buffers<CR>", opt)
-map("n", "<leader>s", ":Telescope lsp_document_symbols<CR>", opt)
+-- ============================================ 
+-- Fuzzy Search (telescope)
+-- ============================================ 
+map("n", "<leader>e", ":Telescope find_files<CR>", {
+  noremap = true,
+  silent = true,
+  desc = "Find files"
+})
+map("n", "<leader>f", ":Telescope live_grep<CR>", {
+  noremap = true,
+  silent = true,
+  desc = "Grep text"
+})
+map("n", "<leader>b", ":Telescope buffers<CR>", {
+  noremap = true,
+  silent = true,
+  desc = "Find buffers"
+})
+map("n", "<leader>s", ":Telescope lsp_document_symbols<CR>", {
+  noremap = true,
+  silent = true,
+  desc = "Find document symbols"
+})
 
--- Advanced Git Search
-map("n", "<leader>gs", ":AdvancedGitSearch diff_commit_file<CR>", opt)
-map("v", "<leader>gs", ":AdvancedGitSearch diff_commit_line<CR>", opt)
 
--- Trouble
-vim.keymap.set("n", "<leader>xx", function() require("trouble").toggle() end)
-vim.keymap.set("n", "<leader>xw", function() require("trouble").toggle("workspace_diagnostics") end)
-vim.keymap.set("n", "<leader>xd", function() require("trouble").toggle("document_diagnostics") end)
-vim.keymap.set("n", "<leader>xq", function() require("trouble").toggle("quickfix") end)
-vim.keymap.set("n", "<leader>xl", function() require("trouble").toggle("loclist") end)
-vim.keymap.set("n", "gR", function() require("trouble").toggle("lsp_references") end)
+-- ============================================ 
+-- Advanced Git Search (advanced-git-search)
+-- ============================================ 
+map("n", "<leader>gs", ":AdvancedGitSearch diff_commit_file<CR>", {
+  noremap = true,
+  silent = true,
+  desc = "Git file commit history"
+})
+map("v", "<leader>gs", ":AdvancedGitSearch diff_commit_line<CR>", {
+  noremap = true,
+  silent = true,
+  desc = "Git line commit history"
+})
 
--- lsp
--- lsp 回调函数快捷键设置
+
+-- ============================================ 
+-- Diagnostics Management (trouble)
+-- ============================================ 
+map("n", "<leader>xx", function() require("trouble").toggle() end, {
+  noremap = true,
+  silent = true,
+  desc = "Toggle diagnostics panel"
+})
+map("n", "<leader>xw", function() require("trouble").toggle("workspace_diagnostics") end, {
+  noremap = true,
+  silent = true,
+  desc = "Workspace diagnostics"
+})
+map("n", "<leader>xd", function() require("trouble").toggle("document_ diagnostics") end, {
+  noremap = true,
+  silent = true,
+  desc = "Document diagnostics"
+})
+map("n", "<leader>xq", function() require("trouble").toggle("quickfix") end, {
+  noremap = true,
+  silent = true,
+  desc = "Quickfix list"
+})
+map("n", "<leader>xl", function() require("trouble").toggle("loclist") end, {
+  noremap = true,
+  silent = true,
+  desc = "Location list"
+})
+map("n", "gR", function() require("trouble").toggle("lsp_references") end, {
+  noremap = true,
+  silent = true,
+  desc = "LSP references list"
+})
+
+
+-- ============================================ 
+-- LSP Related Keybindings
+-- ============================================ 
 pluginKeys.maplsp = function(mapbuf)
-  -- rename
-  mapbuf('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opt)
-  -- code action
-  mapbuf('n', '<leader>a', '<cmd>lua vim.lsp.buf.code_action()<CR>', opt)
-  -- go xx
-  mapbuf('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opt)
-  mapbuf('n', 'gh', '<cmd>lua vim.lsp.buf.hover()<CR>', opt)
-  mapbuf('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opt)
-  mapbuf('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opt)
-  mapbuf('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opt)
-  -- diagnostic
-  mapbuf('n', 'go', '<cmd>lua vim.diagnostic.open_float()<CR>', opt)
-  mapbuf('n', 'gp', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opt)
-  mapbuf('n', 'gn', '<cmd>lua vim.diagnostic.goto_next()<CR>', opt)
-  -- mapbuf('n', '<leader>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opt)
-  -- leader + =
-  mapbuf('n', '<leader>=', '<cmd>lua vim.lsp.buf.formatting()<CR>', opt)
-  -- mapbuf('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opt)
-  -- mapbuf('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opt)
-  -- mapbuf('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opt)
-  -- mapbuf('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opt)
-  -- mapbuf('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opt)
+  -- Rename symbol
+  mapbuf('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', {
+    noremap = true,
+    silent = true,
+    desc = "Rename symbol"
+  })
+  
+  -- Code action
+  mapbuf('n', '<leader>a', '<cmd>lua vim.lsp.buf.code_action()<CR>', {
+    noremap = true,
+    silent = true,
+    desc = "Code action"
+  })
+  
+  -- Go to definition
+  mapbuf('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', {
+    noremap = true,
+    silent = true,
+    desc = "Go to definition"
+  })
+  
+  -- Show hover documentation
+  mapbuf('n', 'gh', '<cmd>lua vim.lsp.buf.hover()<CR>', {
+    noremap = true,
+    silent = true,
+    desc = "Show documentation"
+  })
+  
+  -- Go to declaration
+  mapbuf('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', {
+    noremap = true,
+    silent = true,
+    desc = "Go to declaration"
+  })
+  
+  -- Go to implementation
+  mapbuf('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', {
+    noremap = true,
+    silent = true,
+    desc = "Go to implementation"
+  })
+  
+  -- Go to references
+  mapbuf('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', {
+    noremap = true,
+    silent = true,
+    desc = "Go to references"
+  })
+  
+  -- Show diagnostics
+  mapbuf('n', 'go', '<cmd>lua vim.diagnostic.open_float()<CR>', {
+    noremap = true,
+    silent = true,
+    desc = "Show diagnostics"
+  })
+  
+  -- Go to previous diagnostic
+  mapbuf('n', 'gp', '<cmd>lua vim.diagnostic.goto_prev()<CR>', {
+    noremap = true,
+    silent = true,
+    desc = "Previous diagnostic"
+  })
+  
+  -- Go to next diagnostic
+  mapbuf('n', 'gn', '<cmd>lua vim.diagnostic.goto_next()<CR>', {
+    noremap = true,
+    silent = true,
+    desc = "Next diagnostic"
+  })
+  
+  -- Format code
+  mapbuf('n', '<leader>=', '<cmd>lua vim.lsp.buf.formatting()<CR>', {
+    noremap = true,
+    silent = true,
+    desc = "Format code"
+  })
 end
 
+
+-- Return plugin keybinding table
 return pluginKeys

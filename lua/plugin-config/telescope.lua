@@ -8,7 +8,7 @@ local M = {
 function M.config()
   local status, telescope = pcall(require, "telescope")
   if not status then
-    vim.notify("没有找到 telescope")
+    vim.notify("telescope not found")
     return
   end
 
@@ -17,24 +17,24 @@ function M.config()
 
   telescope.setup({
     defaults = {
-      -- 打开弹窗后进入的初始模式，默认为 insert，也可以是 normal
+      -- Initial mode when opening the popup, defaults to insert, can also be normal
       initial_mode = "insert",
-      -- vertical , center , cursor
+      -- vertical, center, cursor
       layout_strategy = "horizontal",
-      -- 窗口内快捷键
+      -- Keybindings within the window
       mappings = {
         i = {
-          -- 上下移动
+          -- Move up/down
           ["<C-j>"] = "move_selection_next",
           ["<C-k>"] = "move_selection_previous",
           ["<C-n>"] = "move_selection_next",
           ["<C-p>"] = "move_selection_previous",
-          -- 历史记录
+          -- History
           ["<Down>"] = "cycle_history_next",
           ["<Up>"] = "cycle_history_prev",
-          -- 关闭窗口
+          -- Close window
           ["<esc>"] = actions.close,
-          -- 预览窗口上下滚动
+          -- Scroll preview window up/down
           ["<C-u>"] = "preview_scrolling_up",
           ["<C-d>"] = "preview_scrolling_down",
           -- Trouble
@@ -48,7 +48,7 @@ function M.config()
     },
     pickers = {
       find_files = {
-        -- theme = "dropdown", -- 可选参数： dropdown, cursor, ivy
+        -- theme = "dropdown", -- Optional parameters: dropdown, cursor, ivy
       }
     },
     extensions = {

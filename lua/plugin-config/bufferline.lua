@@ -6,9 +6,9 @@ function M.config()
   vim.opt.termguicolors = true
   require("bufferline").setup {
     options = {
-      -- 使用 nvim 内置lsp
+      -- Use nvim built-in lsp
       diagnostics = "nvim_lsp",
-      -- 左侧让出 nvim-tree 的位置
+      -- Offset left for nvim-tree
       offsets = { {
         filetype = "NvimTree",
         text = "File Explorer",

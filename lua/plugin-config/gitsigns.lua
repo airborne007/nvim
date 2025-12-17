@@ -10,7 +10,7 @@ function M.config()
         opts.buffer = bufnr
         vim.keymap.set(mode, l, r, opts)
       end
-      -- 绑定快捷键
+      -- Bind keybindings
       require("keybindings").mapgit(map)
     end
   }

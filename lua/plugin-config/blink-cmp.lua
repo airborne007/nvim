@@ -27,9 +27,9 @@ return {
       -- set to 'none' to disable the 'default' preset
       preset = 'enter',
 
-      -- 上一个
+      -- Previous
       ['<C-k>'] = { 'select_prev', 'fallback' },
-      -- 下一个
+      -- Next
       ['<C-j>'] = { 'select_next', 'fallback' },
     },
 

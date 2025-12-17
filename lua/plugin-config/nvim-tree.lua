@@ -111,42 +111,42 @@ function M.config()
   -- local nvim_tree = require'nvim-tree'
   local status, nvim_tree = pcall(require, 'nvim-tree')
   if not status then
-    vim.notify('没有找到 nvim-tree')
+    vim.notify('nvim-tree not found')
     return
   end
 
   nvim_tree.setup({
-    -- 不显示 git 状态图标
+    -- Do not show git status icons
     git = {
       enable = false,
     },
-    -- project plugin 需要这样设置
+    -- Required for project plugin
     update_cwd = true,
     update_focused_file = {
       enable = true,
       update_cwd = true,
     },
-    -- 隐藏不需要显示的文件
+    -- Hide files that don't need to be displayed
     filters = {
       dotfiles = true,
       custom = { 'node_modules', '.idea', '__pycache__' },
     },
     view = {
-      -- 宽度
+      -- Width
       width = 40,
-      -- 也可以 'right'
+      -- Can also be 'right'
       side = 'left',
-      -- 不显示行数
+      -- Do not show line numbers
       number = false,
       relativenumber = false,
-      -- 显示图标
+      -- Show icons
       signcolumn = 'yes',
     },
     actions = {
       open_file = {
-        -- 首次打开大小适配
+        -- Adapt window size on first open
         resize_window = true,
-        -- 打开文件时关闭 tree
+        -- Close tree when opening file
         quit_on_open = true,
       },
     },

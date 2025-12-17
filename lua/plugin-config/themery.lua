@@ -1,9 +1,9 @@
 local M = {
 
-  -- 主题管理
+  -- Theme management
   "zaldih/themery.nvim",
   dependencies = {
-    -- 安装的主题列表
+    -- List of installed themes
     'navarasu/onedark.nvim',
     'sainnhe/everforest',
     'ellisonleao/gruvbox.nvim',
@@ -12,14 +12,14 @@ local M = {
 }
 
 function M.config()
-  -- 配置主题选择
+  -- Configure theme selection
   require("themery").setup({
     globalBefore = [[
-      -- 配置termguicolors
+      -- Configure termguicolors
       vim.o.termguicolors = true
       vim.opt.termguicolors = true
 
-      -- 设置默认背景
+      -- Set default background
       vim.o.background=dark
     ]],
     themes = {

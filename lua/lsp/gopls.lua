@@ -24,7 +24,7 @@ local opts = {
   },
   on_attach = function(client, bufnr)
     require('lsp.utils').on_attach(client, bufnr)
-    -- 自动执行goimports
+    -- Automatically execute goimports
     vim.cmd("autocmd BufWritePre *.go lua OrgImports(1000)")
     -- To make your Ctrl+x,Ctrl+o work
     vim.cmd("autocmd FileType go setlocal omnifunc=v:lua.vim.lsp.omnifunc")

@@ -5,10 +5,10 @@ local M = {
 
 function M.config()
   require 'nvim-treesitter.configs'.setup {
-    -- 安装 language parser
-    -- :TSInstallInfo 命令查看支持的语言
+    -- Install language parser
+    -- :TSInstallInfo command to view supported languages
     ensure_installed = { "vim", "lua", "typescript", "python", "go", "gomod", "gowork", "bash", "yaml", "make" },
-    -- 启用代码高亮功能
+    -- Enable code highlighting
     highlight = {
       enable = true,
       additional_vim_regex_highlighting = false
@@ -21,7 +21,7 @@ function M.config()
     --   -- colors = {}, -- table of hex strings
     --   -- termcolors = {} -- table of colour name strings
     -- },
-    -- 启用增量选择
+    -- Enable incremental selection
     incremental_selection = {
       enable = false,
       keymaps = {
@@ -31,15 +31,15 @@ function M.config()
         scope_incremental = '<TAB>',
       }
     },
-    -- 启用基于Treesitter的代码格式化(=) . NOTE: This is an experimental feature.
+    -- Enable Treesitter-based code formatting (=) . NOTE: This is an experimental feature.
     indent = {
       enable = false
     }
   }
-  -- 开启 Folding
+  -- Enable Folding
   -- vim.wo.foldmethod = 'expr'
   -- vim.wo.foldexpr = 'nvim_treesitter#foldexpr()'
-  -- 默认不要折叠
+  -- Do not fold by default
   -- https://stackoverflow.com/questions/8316139/how-to-set-the-default-to-unfolded-when-you-open-a-file
   -- vim.wo.foldlevel = 99
 end
