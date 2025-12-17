@@ -52,11 +52,9 @@ function M.config()
       }
     },
     extensions = {
-      advanced_git_search = {}
-    },
+    }
   })
 
-  require("telescope").load_extension("advanced_git_search")
 
   pcall(telescope.load_extension, "env")
 end

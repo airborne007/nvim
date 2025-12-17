@@ -25,9 +25,9 @@ local default_opts = {
 -- c: command_mode
 
 
--- ============================================ 
+-- ============================================
 -- Basic Editing Keybindings
--- ============================================ 
+-- ============================================
 
 -- Clear search highlight
 map("n", "<leader><space>", ":noh<CR>", {
@@ -246,14 +246,23 @@ pluginKeys.mapgit = function(mapbuf)
     silent = true,
     desc = "Previous Git hunk"
   })
-
-  -- Toggle Git blame for the current line
-  mapbuf('n', '<leader>tb', gitsigns.toggle_current_line_blame, {
-    noremap = true,
-    silent = true,
-    desc = "Toggle Git blame for current line"
-  })
 end
+
+
+-- ============================================ 
+-- Git History displays
+-- ============================================
+local git_history = require('extensions.git_history')
+map("n", "<leader>gs", git_history.show_git_history, {
+  noremap = true,
+  silent = true,
+  desc = "Git file commit history"
+})
+map("v", "<leader>gs", git_history.show_selected_files_history, {
+  noremap = true,
+  silent = true,
+  desc = "Git line commit history"
+})
 
 
 -- ============================================ 
@@ -278,21 +287,6 @@ map("n", "<leader>s", ":Telescope lsp_document_symbols<CR>", {
   noremap = true,
   silent = true,
   desc = "Find document symbols"
-})
-
-
--- ============================================ 
--- Advanced Git Search (advanced-git-search)
--- ============================================ 
-map("n", "<leader>gs", ":AdvancedGitSearch diff_commit_file<CR>", {
-  noremap = true,
-  silent = true,
-  desc = "Git file commit history"
-})
-map("v", "<leader>gs", ":AdvancedGitSearch diff_commit_line<CR>", {
-  noremap = true,
-  silent = true,
-  desc = "Git line commit history"
 })
 
 

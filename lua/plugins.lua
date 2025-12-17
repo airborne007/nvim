@@ -93,7 +93,6 @@ require("lazy").setup({
   -- Git Tools
   -- ============================================
   require('plugin-config.gitsigns'),        -- Git status indicator
-  require('plugin-config.advanced-git-search'), -- Advanced Git search
 
   -- ============================================
   -- Fuzzy Search
