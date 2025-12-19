@@ -33,15 +33,27 @@ local function get_commit_diff(hash, filepath)
 end
 
 -- Get commit details for preview
-local function get_commit_details(hash, filepath)
-    local cmd = string.format('log -1 --pretty=format:"Author: %%an\nDate: %%ad\nCommit: %%h\n\n%%s\n\n%%b" --date=short %s', hash)
-    local details = git_cmd(cmd)
-    if details then
-        local details_str = table.concat(details, '\n')
-        local diff_str = get_commit_diff(hash, filepath)
-        return details_str .. '\n\n--- DIFF ---\n' .. diff_str
+local function get_commit_details(hash, filepath, start_line, end_line)
+    if start_line and end_line then
+        -- Use git log -L which provides both commit info and scoped diff
+        local cmd = string.format('log -1 --pretty=format:"Author: %%an\nDate: %%ad\nCommit: %%h\n\n%%s\n\n%%b\n\n--- DIFF ---" --date=short -L %d,%d:%s %s', 
+            start_line, end_line, vim.fn.shellescape(filepath), hash)
+        
+        local result = git_cmd(cmd)
+        if result then
+            return table.concat(result, '\n')
+        end
+        return 'No details available'
+    else
+        local cmd = string.format('log -1 --pretty=format:"Author: %%an\nDate: %%ad\nCommit: %%h\n\n%%s\n\n%%b" --date=short %s', hash)
+        local details = git_cmd(cmd)
+        if details then
+            local details_str = table.concat(details, '\n')
+            local diff_str = get_commit_diff(hash, filepath)
+            return details_str .. '\n\n--- DIFF ---\n' .. diff_str
+        end
+        return 'No commit details available'
     end
-    return 'No commit details available'
 end
 
 -- ============================================
@@ -245,7 +257,9 @@ local function show_selected_lines_history()
                     author = author, 
                     date = date, 
                     message = message,
-                    filepath = filepath
+                    filepath = filepath,
+                    start_line = start_line,
+                    end_line = end_line
                 })
             end
         end
@@ -260,7 +274,9 @@ local function show_selected_lines_history()
                         display = string.format('%s %s %s %s', entry.hash, entry.date, entry.author, entry.message),
                         ordinal = string.format('%s %s %s %s', entry.date, entry.hash, entry.author, entry.message),
                         commit_hash = entry.hash,
-                        filepath = entry.filepath
+                        filepath = entry.filepath,
+                        start_line = entry.start_line,
+                        end_line = entry.end_line
                     }
                 end
             }),
@@ -271,7 +287,7 @@ local function show_selected_lines_history()
                     return entry.commit_hash
                 end,
                 define_preview = function(self, entry, status)
-                    local details = get_commit_details(entry.commit_hash, entry.filepath)
+                    local details = get_commit_details(entry.commit_hash, entry.filepath, entry.start_line, entry.end_line)
                     vim.api.nvim_buf_set_lines(self.state.bufnr, 0, -1, false, vim.split(details, '\n'))
                     vim.api.nvim_buf_set_option(self.state.bufnr, 'filetype', 'diff')
                 end
