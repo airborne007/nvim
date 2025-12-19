@@ -136,18 +136,12 @@ M.set_secure_permissions = function()
     -- Get the Neovim configuration directory
     local config_dir = vim.fn.stdpath("config")
 
-    -- Ensure that configuration files have appropriate permissions
-    local config_dirs = {
-        config_dir,
-        config_dir .. "/lua",
-        config_dir .. "/lua/core"
-    }
-
-    for _, dir in ipairs(config_dirs) do
-        if vim.fn.isdirectory(dir) == 1 then
-            -- Ensure that the directory exists and set permissions
-            M.safe_execute("!chmod -R 700 " .. dir, { silent = true })
-        end
+    -- Only set permissions for the root config directory.
+    -- If the root directory is 700 (rwx------), other users cannot enter it
+    -- or access any files within it, regardless of the files' individual permissions.
+    -- We remove '-R' to avoid marking .lua files as executable and to improve startup speed.
+    if vim.fn.isdirectory(config_dir) == 1 then
+        M.safe_execute("!chmod 700 " .. config_dir, { silent = true })
     end
 end
 
