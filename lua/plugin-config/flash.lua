@@ -10,13 +10,20 @@ local M = {
     },
     modes = {
       char = {
-        jump_labels = true,
+        enabled = false,
       }
     }
   },
   keys = {
+    -- Disable default mappings
+    { "s", mode = { "n", "x", "o" }, false },
+    { "S", mode = { "n", "x", "o" }, false },
+    { "r", mode = "o", false },
+    { "R", mode = { "o", "x" }, false },
+    { "<c-s>", mode = { "c" }, false },
+
+    -- Custom mapping
     { "<leader>d", mode = { "n", "x", "o" }, function() require("flash").jump() end,   desc = "Flash" },
-    { "<c-s>",     mode = { "c" },           function() require("flash").toggle() end, desc = "Toggle Flash Search" },
   },
 }
 

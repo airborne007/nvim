@@ -154,7 +154,7 @@ local pluginKeys = {}
 -- ============================================ 
 -- File Explorer (nvim-tree)
 -- ============================================ 
-map('n', '<F3>', ':NvimTreeToggle<CR>', {
+map('n', '<A-m>', ':NvimTreeToggle<CR>', {
   noremap = true,
   silent = true,
   desc = "Toggle file explorer"
@@ -318,7 +318,7 @@ map("n", "<leader>xl", function() require("trouble").toggle("loclist") end, {
   silent = true,
   desc = "Location list"
 })
-map("n", "gR", function() require("trouble").toggle("lsp_references") end, {
+map("n", "<leader>xr", function() require("trouble").toggle("lsp_references") end, {
   noremap = true,
   silent = true,
   desc = "LSP references list"
@@ -400,7 +400,7 @@ pluginKeys.maplsp = function(mapbuf)
   })
   
   -- Format code
-  mapbuf('n', '<leader>=', '<cmd>lua vim.lsp.buf.formatting()<CR>', {
+  mapbuf('n', '<leader>=', '<cmd>lua vim.lsp.buf.format({ async = true })<CR>', {
     noremap = true,
     silent = true,
     desc = "Format code"
