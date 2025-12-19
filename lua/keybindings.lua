@@ -182,14 +182,14 @@ map("n", "<leader>c", ":bd<CR>", {
 
 
 -- ============================================ 
--- Floating Terminal (FTerm)
+-- Floating Terminal (Snacks.nvim)
 -- ============================================ 
-map('n', '<A-d>', '<CMD>lua require("FTerm").toggle()<CR>', {
+map('n', '<A-d>', function() Snacks.terminal.toggle() end, {
   noremap = true,
   silent = true,
   desc = "Toggle floating terminal"
 })
-map('t', '<A-d>', '<CMD>lua require("FTerm").toggle()<CR>', {
+map('t', '<A-d>', function() Snacks.terminal.toggle() end, {
   noremap = true,
   silent = true,
   desc = "Toggle floating terminal in terminal"

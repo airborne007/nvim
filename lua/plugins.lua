@@ -48,7 +48,11 @@ require("lazy").setup({
   -- ============================================
   -- Themes & Appearance
   -- ============================================  
-  require('plugin-config.themery'), -- Theme switcher
+  -- Themes
+  { 'navarasu/onedark.nvim' },
+  { 'sainnhe/everforest' },
+  { 'ellisonleao/gruvbox.nvim' },
+  { 'folke/tokyonight.nvim' },
 
   -- ============================================
   -- UI Components
@@ -57,8 +61,27 @@ require("lazy").setup({
   require('plugin-config.bufferline'), -- Buffer tabline
   require('plugin-config.lualine'),    -- Status line
   {
-    "numToStr/FTerm.nvim",
-    description = "Floating terminal",
+    "folke/snacks.nvim",
+    priority = 1000,
+    lazy = false,
+        opts = {
+          terminal = { 
+            enabled = true,
+            win = {
+              position = "float",
+              backdrop = 60, -- 背景变暗程度 (0-100)
+              width = 0.8,   -- 屏幕宽度的 80%
+              height = 0.8,  -- 屏幕高度的 80%
+              border = "rounded",
+              wo = {
+                winblend = 15, -- 窗口透明度 (0-100)，15 是比较舒适的半透明
+              },
+            },
+          },
+          bigfile = { enabled = true },      quickfile = { enabled = true },
+      statuscolumn = { enabled = true },
+      words = { enabled = true },
+    },
   },
   {
     'kevinhwang91/nvim-bqf',
@@ -70,19 +93,13 @@ require("lazy").setup({
   -- Editing Enhancements
   -- ============================================
   require('plugin-config.nvim-autopairs'), -- Automatic parenthesis completion
-  require('plugin-config.comment'),        -- Code commenting
+  {
+    'echasnovski/mini.comment',
+    version = '*',
+    opts = {},
+  },        -- Code commenting
   require('plugin-config.flash'),          -- Quick jump
   require('plugin-config.trouble'),        -- Diagnostics list
-  {
-    'hrsh7th/vim-vsnip',
-    description = "Code snippet engine",
-    event = 'InsertEnter',
-  },
-  {
-    'rafamadriz/friendly-snippets',
-    description = "Collection of common code snippets",
-    event = 'InsertEnter',
-  },
   {
     'machakann/vim-sandwich',
     description = "Enhanced surrounding operations for brackets, quotes, etc.",
