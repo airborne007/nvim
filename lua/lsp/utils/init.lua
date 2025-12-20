@@ -8,7 +8,16 @@ function M.on_attach(client, bufnr)
   -- Bind keybindings
   require("keybindings").maplsp(buf_set_keymap)
   -- Auto-format on save
-  vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.format()")
+  vim.api.nvim_create_autocmd("BufWritePre", {
+    buffer = bufnr,
+    callback = function()
+      local ft = vim.bo[bufnr].filetype
+      local ignore_filetypes = { "python", "lua", "javascript", "typescript" }
+      if not vim.tbl_contains(ignore_filetypes, ft) then
+        vim.lsp.buf.format()
+      end
+    end,
+  })
 end
 
 return M

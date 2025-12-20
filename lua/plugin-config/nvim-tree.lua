@@ -121,10 +121,10 @@ function M.config()
       enable = false,
     },
     -- Required for project plugin
-    update_cwd = true,
+    update_cwd = false,
     update_focused_file = {
       enable = true,
-      update_cwd = true,
+      update_cwd = false,
     },
     -- Hide files that don't need to be displayed
     filters = {

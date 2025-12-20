@@ -27,6 +27,9 @@ return {
       -- set to 'none' to disable the 'default' preset
       preset = 'enter',
 
+      ['<Tab>'] = { 'snippet_forward', 'fallback' },
+      ['<S-Tab>'] = { 'snippet_backward', 'fallback' },
+
       -- Previous
       ['<C-k>'] = { 'select_prev', 'fallback' },
       -- Next
