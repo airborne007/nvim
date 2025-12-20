@@ -22,29 +22,7 @@ function M.config()
       -- vertical, center, cursor
       layout_strategy = "horizontal",
       -- Keybindings within the window
-      mappings = {
-        i = {
-          -- Move up/down
-          ["<C-j>"] = "move_selection_next",
-          ["<C-k>"] = "move_selection_previous",
-          ["<C-n>"] = "move_selection_next",
-          ["<C-p>"] = "move_selection_previous",
-          -- History
-          ["<Down>"] = "cycle_history_next",
-          ["<Up>"] = "cycle_history_prev",
-          -- Close window
-          ["<esc>"] = actions.close,
-          -- Scroll preview window up/down
-          ["<C-u>"] = "preview_scrolling_up",
-          ["<C-d>"] = "preview_scrolling_down",
-          -- Trouble
-          ["<c-t>"] = trouble.open,
-        },
-        n = {
-          -- Trouble
-          ["<c-t>"] = trouble.open,
-        }
-      },
+      mappings = require("keybindings").telescopeMappings(actions, trouble),
     },
     pickers = {
       find_files = {

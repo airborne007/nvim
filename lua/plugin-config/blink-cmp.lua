@@ -23,18 +23,7 @@ return {
     -- C-k: Toggle signature help
     --
     -- See the full "keymap" documentation for information on defining your own keymap.
-    keymap = {
-      -- set to 'none' to disable the 'default' preset
-      preset = 'enter',
-
-      ['<Tab>'] = { 'snippet_forward', 'fallback' },
-      ['<S-Tab>'] = { 'snippet_backward', 'fallback' },
-
-      -- Previous
-      ['<C-k>'] = { 'select_prev', 'fallback' },
-      -- Next
-      ['<C-j>'] = { 'select_next', 'fallback' },
-    },
+    keymap = require("keybindings").blinkCmpKeys,
 
     appearance = {
       -- Sets the fallback highlight groups to nvim-cmp's highlight groups

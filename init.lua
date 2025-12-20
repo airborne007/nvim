@@ -1,3 +1,7 @@
+-- Set leader keys before loading lazy.nvim
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
 -- Modular core configuration
 require('core.config').setup()
 
@@ -27,9 +31,6 @@ end
 
 -- Key mappings
 require('keybindings')
-
--- LSP configuration
-require('lsp')
 
 -- Autocmd
 require("auto-command")

@@ -21,9 +21,6 @@ local M = {
     { "r", mode = "o", false },
     { "R", mode = { "o", "x" }, false },
     { "<c-s>", mode = { "c" }, false },
-
-    -- Custom mapping
-    { "<leader>d", mode = { "n", "x", "o" }, function() require("flash").jump() end,   desc = "Flash" },
   },
 }
 
