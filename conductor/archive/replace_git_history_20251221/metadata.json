@@ -1,0 +1,8 @@
+{
+  "track_id": "replace_git_history_20251221",
+  "type": "feature",
+  "status": "new",
+  "created_at": "2025-12-21T14:30:00Z",
+  "updated_at": "2025-12-21T14:30:00Z",
+  "description": "Replace custom git_history.lua with snacks.nvim picker"
+}
