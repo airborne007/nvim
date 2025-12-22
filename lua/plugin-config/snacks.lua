@@ -18,6 +18,37 @@ return {
         },
       },
       bigfile = { enabled = true },
+      notifier = {
+        enabled = true,
+        timeout = 3000, -- Default timeout in ms
+      },
+      input = { enabled = true },
+      picker = {
+        enabled = true,
+        ui_select = true, -- replace vim.ui.select
+        win = {
+          input = {
+            keys = {
+              ["<c-u>"] = { "preview_scroll_up", mode = { "i", "n" } },
+              ["<c-d>"] = { "preview_scroll_down", mode = { "i", "n" } },
+            },
+          },
+        },
+      },
+      select = { enabled = true },
+      scroll = { enabled = true },
+      indent = { enabled = true },
+      scope = { enabled = true },
+      animate = { enabled = true },
+      dashboard = {
+        enabled = true,
+        sections = {
+          { section = "header" },
+          { section = "keys", gap = 1, padding = 1 },
+          { section = "recent_files", indent = 2, padding = 1 },
+          { section = "startup" },
+        },
+      },
       quickfile = { enabled = true },
       statuscolumn = { enabled = true },
       words = { enabled = true },
