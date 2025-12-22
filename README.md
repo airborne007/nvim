@@ -126,6 +126,20 @@ The Leader key is set to **Space**.
 
 *Press `<Space>` (Leader) and wait a second to see the `which-key` menu for more available commands.*
 
+## 🛠️ Development
+
+### Running Tests
+
+This configuration uses [plenary.nvim](https://github.com/nvim-lua/plenary.nvim) for unit testing core logic.
+
+To run all tests in headless mode:
+
+```bash
+make test
+```
+
+Tests are located in the `tests/` directory and follow the module structure of the `lua/` directory.
+
 ## 📂 Project Structure
 
 ```text

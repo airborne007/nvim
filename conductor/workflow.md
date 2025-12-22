@@ -70,21 +70,29 @@ All tasks follow a strict lifecycle:
 5.  **Await Explicit User Feedback:**
     -   **PAUSE** and await the user's confirmation.
 
-6.  **Create Checkpoint Commit:**
-    -   Stage all changes for the entire phase.
-    -   Perform the commit with a clear message: `feat(phase): Complete Phase <PHASE NAME>`.
+6.  **Create Consolidated Checkpoint Commit:**
+    -   Stage all changes for the entire phase, including the updated `plan.md` and any metadata changes.
+    -   Perform the commit with a detailed message following this structure:
+        ```
+        feat(phase): Complete Phase <PHASE NAME>
 
-7.  **Attach Auditable Verification Report using Git Notes:**
-    -   **Step 7.1: Draft Note Content:** Include task summaries, test results, and user confirmation for the entire phase.
-    -   **Step 7.2: Attach Note:** Use `git notes` to attach the report to the checkpoint commit.
+        Tasks completed:
+        - [x] <Task 1 Description>
+        - [x] <Task 2 Description>
 
-8.  **Record Phase Checkpoint SHA in Plan:**
-    -   Update `plan.md` with the checkpoint SHA next to the phase heading.
+        Technical Notes:
+        - <Brief summary of key implementation details or architectural changes>
 
-9. **Commit Plan Update:**
-    - Commit the updated `plan.md`.
+        Verification:
+        - All automated tests passed (coverage > 80%)
+        - Manual verification completed per protocol
+        ```
+    -   This ensures the commit history itself is an auditable trail of work.
 
-10.  **Announce Completion:** Inform the user that the phase is fully verified and checkpointed.
+7.  **Attach Auditable Verification Report using Git Notes (Optional):**
+    -   If there are extensive logs, screenshots (as links), or raw test outputs, attach them using `git notes`.
+
+8.  **Announce Completion:** Inform the user that the phase is fully verified and documented in the commit.
 
 ### Quality Gates
 

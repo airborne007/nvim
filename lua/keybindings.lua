@@ -252,41 +252,46 @@ end
 -- ============================================ 
 -- Git History displays
 -- ============================================
-local git_history = require('extensions.git_history')
-map("n", "<leader>gs", git_history.show_git_history, {
+local git_wrapper = require('core.git_wrapper')
+map({"n", "v"}, "<leader>gh", git_wrapper.smart_git_history, {
   noremap = true,
   silent = true,
-  desc = "Git file commit history"
-})
-map("v", "<leader>gs", git_history.show_selected_files_history, {
-  noremap = true,
-  silent = true,
-  desc = "Git line commit history"
+  desc = "Git history (Smart)"
 })
 
 
 -- ============================================ 
--- Fuzzy Search (telescope)
+-- Fuzzy Search (snacks.picker)
 -- ============================================ 
-map("n", "<leader>e", ":Telescope find_files<CR>", {
+map("n", "<leader>e", function() Snacks.picker.files() end, {
   noremap = true,
   silent = true,
   desc = "Find files"
 })
-map("n", "<leader>f", ":Telescope live_grep<CR>", {
+map("n", "<leader>f", function() Snacks.picker.grep() end, {
   noremap = true,
   silent = true,
   desc = "Grep text"
 })
-map("n", "<leader>b", ":Telescope buffers<CR>", {
+map("n", "<leader>b", function() Snacks.picker.buffers() end, {
   noremap = true,
   silent = true,
   desc = "Find buffers"
 })
-map("n", "<leader>s", ":Telescope lsp_document_symbols<CR>", {
+map("n", "<leader>s", function() Snacks.picker.lsp_symbols() end, {
   noremap = true,
   silent = true,
   desc = "Find document symbols"
+})
+map("n", "<leader>gs", function() Snacks.picker.git_status() end, {
+  noremap = true,
+  silent = true,
+  desc = "Git status"
+})
+map("n", "<leader>sd", function() Snacks.picker.diagnostics() end, {
+  noremap = true,
+  silent = true,
+  desc = "Search diagnostics"
 })
 
 
@@ -487,35 +492,6 @@ pluginKeys.nvimTreeOnAttach = function(bufnr)
   vim.keymap.set('n', 'c', api.fs.copy.node, opts('Copy'))
   vim.keymap.set('n', 'p', api.fs.paste, opts('Paste'))
   vim.keymap.set('n', 's', api.node.run.system, opts('Run System'))
-end
-
--- ============================================ 
--- Telescope (Fuzzy Finder)
--- ============================================ 
-pluginKeys.telescopeMappings = function(actions, trouble)
-  return {
-    i = {
-      -- Move up/down
-      ["<C-j>"] = "move_selection_next",
-      ["<C-k>"] = "move_selection_previous",
-      ["<C-n>"] = "move_selection_next",
-      ["<C-p>"] = "move_selection_previous",
-      -- History
-      ["<Down>"] = "cycle_history_next",
-      ["<Up>"] = "cycle_history_prev",
-      -- Close window
-      ["<esc>"] = actions.close,
-      -- Scroll preview window up/down
-      ["<C-u>"] = "preview_scrolling_up",
-      ["<C-d>"] = "preview_scrolling_down",
-      -- Trouble
-      ["<c-t>"] = trouble.open,
-    },
-    n = {
-      -- Trouble
-      ["<c-t>"] = trouble.open,
-    }
-  }
 end
 
 -- ============================================ 

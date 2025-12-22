@@ -124,6 +124,20 @@ Leader 键设置为 **空格 (Space)**。
 
 *按下 `<Space>` (Leader) 键并稍等片刻，会弹出 `which-key` 菜单显示更多可用命令。*
 
+## 🛠️ 开发指南
+
+### 运行测试
+
+本配置使用 [plenary.nvim](https://github.com/nvim-lua/plenary.nvim) 对核心逻辑进行单元测试。
+
+要在无头模式（headless mode）下运行所有测试：
+
+```bash
+make test
+```
+
+测试文件位于 `tests/` 目录中，并遵循 `lua/` 目录的模块结构。
+
 ## 📂 项目结构
 
 ```text
