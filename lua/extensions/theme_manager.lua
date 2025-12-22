@@ -63,7 +63,7 @@ function M.pick_theme()
   local theme_names = vim.tbl_keys(themes)
   table.sort(theme_names)
   
-  -- Use vim.ui.select (which Telescope overrides if installed)
+  -- Use vim.ui.select (which Snacks.picker overrides if installed)
   vim.ui.select(theme_names, {
     prompt = "Select Theme (Custom Extension)",
     format_item = function(item) 

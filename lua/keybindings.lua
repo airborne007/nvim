@@ -154,7 +154,7 @@ local pluginKeys = {}
 -- ============================================ 
 -- File Explorer (nvim-tree)
 -- ============================================ 
-map('n', '<A-m>', ':NvimTreeToggle<CR>', {
+map('n', '<leader>t', ':NvimTreeToggle<CR>', {
   noremap = true,
   silent = true,
   desc = "Toggle file explorer"
@@ -193,26 +193,6 @@ map('t', '<A-d>', function() Snacks.terminal.toggle() end, {
   noremap = true,
   silent = true,
   desc = "Toggle floating terminal in terminal"
-})
-
-
--- ============================================ 
--- AI Assistant (Gemini CLI)
--- ============================================ 
-map("n", "<leader>g", "<cmd>Gemini toggle<cr>", {
-  noremap = true,
-  silent = true,
-  desc = "Toggle Gemini CLI"
-})
-map({"n", "v"}, "<leader>ga", "<cmd>Gemini ask<cr>", {
-  noremap = true,
-  silent = true,
-  desc = "Ask Gemini"
-})
-map("n", "<leader>gf", "<cmd>Gemini add_file<cr>", {
-  noremap = true,
-  silent = true,
-  desc = "Add file to Gemini"
 })
 
 

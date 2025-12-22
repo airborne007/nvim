@@ -2,7 +2,7 @@
 
 [中文文档](README_zh-CN.md)
 
-A highly modular, feature-rich, and blazing fast Neovim configuration crafted for efficiency. Built with [lazy.nvim](https://github.com/folke/lazy.nvim), it features full LSP support, AI integration, Git management, and a polished UI.
+A highly modular, feature-rich, and blazing fast Neovim configuration crafted for efficiency. Built with [lazy.nvim](https://github.com/folke/lazy.nvim), it features full LSP support, Git management, and a polished UI.
 
 ## ✨ Features
 
@@ -13,9 +13,9 @@ A highly modular, feature-rich, and blazing fast Neovim configuration crafted fo
     - **Blink.cmp** for high-performance auto-completion.
     - **Treesitter** for better syntax highlighting and code navigation.
     - **Trouble.nvim** for organized diagnostics.
-- **🤖 AI Integration:** Integrated **Gemini CLI** for seamless AI assistance directly in your editor.
+
 - **🔍 Navigation:**
-    - **Telescope** for fuzzy finding files, text, and buffers.
+    - **Snacks.picker** for fuzzy finding files, text, and buffers.
     - **Nvim-tree** for file system exploration.
     - **Flash.nvim** for lightning-fast movement.
 - **🛡️ Git Integration:**
@@ -30,7 +30,7 @@ Before installing, ensure you have the following requirements:
 
 - **Neovim** >= **0.9.0** (Recommended: 0.10.0+)
 - **Git** (for plugin management)
-- **Ripgrep** (required for Telescope live grep)
+- **Ripgrep** (required for Snacks.picker live grep)
 - **Nerd Font** (recommended for icons)
 - **C Compiler** (gcc/clang, required for Treesitter parsers)
 - **Language Servers:**
@@ -74,9 +74,9 @@ The Leader key is set to **Space**.
 | Key | Description |
 | :--- | :--- |
 | `<Alt-m>` | Toggle File Explorer (Nvim-tree) |
-| `<Leader>e` | Find files (Telescope) |
-| `<Leader>f` | Grep text (Telescope) |
-| `<Leader>b` | Find buffers (Telescope) |
+| `<Leader>e` | Find files (Snacks.picker) |
+| `<Leader>f` | Grep text (Snacks.picker) |
+| `<Leader>b` | Find buffers (Snacks.picker) |
 
 ### 🖥️ Window & Buffer
 
@@ -100,14 +100,6 @@ The Leader key is set to **Space**.
 | `<Leader>a` | Code Action |
 | `<Leader>=` | Format code |
 | `<Leader>xx` | Toggle Diagnostics (Trouble) |
-
-### 🤖 AI Assistant
-
-| Key | Description |
-| :--- | :--- |
-| `<Leader>g` | Toggle Gemini CLI |
-| `<Leader>ga` | Ask Gemini (Normal/Visual) |
-| `<Leader>gf` | Add file to Gemini context |
 
 ### 🛡️ Git
 

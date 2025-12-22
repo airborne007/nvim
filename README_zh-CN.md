@@ -1,6 +1,6 @@
 # 现代 Neovim 配置
 
-一份追求极致效率、高度模块化且功能丰富的 Neovim 配置。基于 [lazy.nvim](https://github.com/folke/lazy.nvim) 构建，集成了全功能 LSP 支持、AI 辅助编程、Git 管理以及现代化的 UI 界面。
+一份追求极致效率、高度模块化且功能丰富的 Neovim 配置。基于 [lazy.nvim](https://github.com/folke/lazy.nvim) 构建，集成了全功能 LSP 支持、Git 管理以及现代化的 UI 界面。
 
 ## ✨ 特性
 
@@ -11,9 +11,9 @@
     - **Blink.cmp** 提供高性能自动补全。
     - **Treesitter** 提供更精准的语法高亮和代码导航。
     - **Trouble.nvim** 集中管理代码诊断信息。
-- **🤖 AI 集成：** 内置 **Gemini CLI**，在编辑器内无缝使用 AI 助手。
+
 - **🔍 快速导航：**
-    - **Telescope** 模糊查找文件、文本和缓冲区。
+    - **Snacks.picker** 模糊查找文件、文本和缓冲区。
     - **Nvim-tree** 文件资源管理器。
     - **Flash.nvim** 光标快速跳转移动。
 - **🛡️ Git 集成：**
@@ -28,7 +28,7 @@
 
 - **Neovim** >= **0.9.0** (推荐 0.10.0+)
 - **Git** (用于插件管理)
-- **Ripgrep** (Telescope 文本搜索依赖)
+- **Ripgrep** (Snacks.picker 文本搜索依赖)
 - **Nerd Font** (推荐安装，用于显示图标)
 - **C Compiler** (gcc/clang, Treesitter 解析器编译依赖)
 - **Language Servers (语言服务器):**
@@ -72,9 +72,9 @@ Leader 键设置为 **空格 (Space)**。
 | 按键 | 说明 |
 | :--- | :--- |
 | `<Alt-m>` | 切换文件浏览器 (Nvim-tree) |
-| `<Leader>e` | 查找文件 (Telescope) |
-| `<Leader>f` | 全局搜索文本 (Telescope) |
-| `<Leader>b` | 查找缓冲区 (Buffer) |
+| `<Leader>e` | 查找文件 (Snacks.picker) |
+| `<Leader>f` | 全局搜索文本 (Snacks.picker) |
+| `<Leader>b` | 查找缓冲区 (Snacks.picker) |
 
 ### 🖥️ 窗口与缓冲区
 
@@ -98,14 +98,6 @@ Leader 键设置为 **空格 (Space)**。
 | `<Leader>a` | 代码操作 (Code Action) |
 | `<Leader>=` | 代码格式化 |
 | `<Leader>xx` | 打开诊断面板 (Trouble) |
-
-### 🤖 AI 助手
-
-| 按键 | 说明 |
-| :--- | :--- |
-| `<Leader>g` | 打开/关闭 Gemini CLI |
-| `<Leader>ga` | 提问 Gemini (普通/选中模式) |
-| `<Leader>gf` | 将当前文件添加到 AI 上下文 |
 
 ### 🛡️ Git 操作
 
