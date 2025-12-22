@@ -1,0 +1,10 @@
+describe("Sanity Check", function()
+  it("should pass this simple test", function()
+    assert.are.same(1, 1)
+  end)
+
+  it("should be able to require core modules", function()
+    local status_ok, _ = pcall(require, "core.config")
+    assert.is_true(status_ok, "Could not require core.config")
+  end)
+end)

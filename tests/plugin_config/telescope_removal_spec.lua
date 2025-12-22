@@ -1,0 +1,11 @@
+describe("Telescope Removal", function()
+  it("should not be able to require telescope", function()
+    local status_ok, _ = pcall(require, "telescope")
+    assert.is_false(status_ok, "Telescope should not be loadable")
+  end)
+
+  it("should not have telescope-related files in plugin-config", function()
+    local stat = vim.loop.fs_stat("lua/plugin-config/telescope.lua")
+    assert.is_nil(stat, "telescope.lua should be removed")
+  end)
+end)
