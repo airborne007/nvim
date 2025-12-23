@@ -42,6 +42,29 @@ Before installing, ensure you have the following requirements:
 
 ## 🚀 Installation
 
+### Arch Linux (Recommended)
+
+If you are on Arch Linux or its derivatives (Manjaro, EndeavourOS, etc.), you can use the provided setup script to install all dependencies and the configuration automatically:
+
+```bash
+git clone https://github.com/airborne007/nvim.git ~/projects/nvim
+cd ~/projects/nvim
+./install.sh
+```
+
+The script will:
+- Check for or install `yay` (AUR helper).
+- Install all necessary system packages (Neovim, LSPs, Runtimes, etc.).
+- Backup your existing `~/.config/nvim` if it exists.
+- Link the configuration to `~/.config/nvim`.
+
+To uninstall:
+```bash
+./uninstall.sh
+```
+
+### Manual Installation (Other Distributions)
+
 1.  **Backup your existing configuration:**
 
     ```bash
@@ -73,7 +96,7 @@ The Leader key is set to **Space**.
 
 | Key | Description |
 | :--- | :--- |
-| `<Alt-m>` | Toggle File Explorer (Nvim-tree) |
+| `<Leader>t` | Toggle File Explorer (Nvim-tree) |
 | `<Leader>e` | Find files (Snacks.picker) |
 | `<Leader>f` | Grep text (Snacks.picker) |
 | `<Leader>b` | Find buffers (Snacks.picker) |
@@ -106,7 +129,8 @@ The Leader key is set to **Space**.
 | Key | Description |
 | :--- | :--- |
 | `]c` / `[c` | Next / Previous Hunk |
-| `<Leader>gs` | Show Git History |
+| `<Leader>gh` | Show Git History |
+| `<Leader>gs` | Show Git Status |
 
 ### ⚡ Others
 

@@ -40,6 +40,29 @@
 
 ## 🚀 安装指南
 
+### Arch Linux (推荐)
+
+如果你使用的是 Arch Linux 或其衍生发行版 (如 Manjaro, EndeavourOS 等)，可以使用提供的安装脚本一键完成所有依赖和配置的安装：
+
+```bash
+git clone https://github.com/airborne007/nvim.git ~/projects/nvim
+cd ~/projects/nvim
+./install.sh
+```
+
+该脚本将自动执行以下操作：
+- 检测并安装 `yay` (AUR 助手)。
+- 安装所有必要的系统包 (Neovim, LSPs, 运行时等)。
+- 备份现有的 `~/.config/nvim` (如果存在)。
+- 将配置链接到 `~/.config/nvim`。
+
+如需卸载：
+```bash
+./uninstall.sh
+```
+
+### 手动安装 (其他发行版)
+
 1.  **备份现有配置（如果有）：**
 
     ```bash
@@ -71,7 +94,7 @@ Leader 键设置为 **空格 (Space)**。
 
 | 按键 | 说明 |
 | :--- | :--- |
-| `<Alt-m>` | 切换文件浏览器 (Nvim-tree) |
+| `<Leader>t` | 切换文件浏览器 (Nvim-tree) |
 | `<Leader>e` | 查找文件 (Snacks.picker) |
 | `<Leader>f` | 全局搜索文本 (Snacks.picker) |
 | `<Leader>b` | 查找缓冲区 (Snacks.picker) |
@@ -104,7 +127,8 @@ Leader 键设置为 **空格 (Space)**。
 | 按键 | 说明 |
 | :--- | :--- |
 | `]c` / `[c` | 跳转到 下一个 / 上一个 变更块 |
-| `<Leader>gs` | 查看 Git 历史 |
+| `<Leader>gh` | 查看 Git 历史 |
+| `<Leader>gs` | 查看 Git 状态 |
 
 ### ⚡ 其他工具
 
