@@ -14,7 +14,7 @@
 
 - **🔍 快速导航：**
     - **Snacks.picker** 模糊查找文件、文本和缓冲区。
-    - **Nvim-tree** 文件资源管理器。
+    - **Snacks.picker.explorer** 文件资源管理器。
     - **Flash.nvim** 光标快速跳转移动。
 - **🛡️ Git 集成：**
     - **Gitsigns** 实时显示代码变动。
@@ -135,7 +135,7 @@ Leader 键设置为 **空格 (Space)**。
 | 按键 | 说明 |
 | :--- | :--- |
 | `<Alt-d>` | 打开悬浮终端 |
-| `<Leader>d` | Flash 快速跳转 |
+| `s` | Flash 快速跳转 |
 | `<Leader><Space>` | 清除搜索高亮 |
 
 *按下 `<Space>` (Leader) 键并稍等片刻，会弹出 `which-key` 菜单显示更多可用命令。*

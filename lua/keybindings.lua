@@ -414,14 +414,5 @@ pluginKeys.blinkCmpKeys = {
   ['<C-j>'] = { 'select_next', 'fallback' },
 }
 
--- ============================================ 
--- Flash
--- ============================================ 
-map({ "n", "x", "o" }, "<leader>d", function() require("flash").jump() end, {
-  noremap = true,
-  silent = true,
-  desc = "Flash Jump"
-})
-
 -- Return plugin keybinding table
 return pluginKeys

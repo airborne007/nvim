@@ -16,7 +16,7 @@ A highly modular, feature-rich, and blazing fast Neovim configuration crafted fo
 
 - **🔍 Navigation:**
     - **Snacks.picker** for fuzzy finding files, text, and buffers.
-    - **Nvim-tree** for file system exploration.
+    - **Snacks.picker.explorer** for file system exploration.
     - **Flash.nvim** for lightning-fast movement.
 - **🛡️ Git Integration:**
     - **Gitsigns** for hunks management.
@@ -137,7 +137,7 @@ The Leader key is set to **Space**.
 | Key | Description |
 | :--- | :--- |
 | `<Alt-d>` | Toggle Floating Terminal |
-| `<Leader>d` | Flash Jump (Fast navigation) |
+| `s` | Flash Jump (Fast navigation) |
 | `<Leader><Space>` | Clear search highlight |
 
 *Press `<Space>` (Leader) and wait a second to see the `which-key` menu for more available commands.*
