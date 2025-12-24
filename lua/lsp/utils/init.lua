@@ -1,8 +1,10 @@
 local M = {}
 
 function M.on_attach(client, bufnr)
-  local function buf_set_keymap(...) 
-    vim.api.nvim_buf_set_keymap(bufnr, ...)
+  local function buf_set_keymap(mode, lhs, rhs, opts)
+    opts = opts or {}
+    opts.buffer = bufnr
+    vim.keymap.set(mode, lhs, rhs, opts)
   end
 
   -- Bind keybindings

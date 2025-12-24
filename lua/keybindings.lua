@@ -298,6 +298,11 @@ map("n", "<leader>xq", function() require("trouble").toggle("quickfix") end, {
   silent = true,
   desc = "Quickfix list"
 })
+map("n", "<leader>qf", function() Snacks.picker.qflist() end, {
+  noremap = true,
+  silent = true,
+  desc = "Quickfix list (Snacks)"
+})
 map("n", "<leader>xl", function() require("trouble").toggle("loclist") end, {
   noremap = true,
   silent = true,
@@ -329,7 +334,7 @@ pluginKeys.maplsp = function(mapbuf)
   })
   
   -- Go to definition
-  mapbuf('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', {
+  mapbuf('n', 'gd', function() Snacks.picker.lsp_definitions() end, {
     noremap = true,
     silent = true,
     desc = "Go to definition"
@@ -350,14 +355,14 @@ pluginKeys.maplsp = function(mapbuf)
   })
   
   -- Go to implementation
-  mapbuf('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', {
+  mapbuf('n', 'gi', function() Snacks.picker.lsp_implementations() end, {
     noremap = true,
     silent = true,
     desc = "Go to implementation"
   })
   
   -- Go to references
-  mapbuf('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', {
+  mapbuf('n', 'gr', function() Snacks.picker.lsp_references() end, {
     noremap = true,
     silent = true,
     desc = "Go to references"

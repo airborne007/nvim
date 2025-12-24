@@ -31,6 +31,10 @@ return {
             keys = {
               ["<c-u>"] = { "preview_scroll_up", mode = { "i", "n" } },
               ["<c-d>"] = { "preview_scroll_down", mode = { "i", "n" } },
+              ["s"] = { "edit_split", mode = { "n" } },
+              ["v"] = { "edit_vsplit", mode = { "n" } },
+              ["<a-q>"] = { "qflist", mode = { "i", "n" } },
+              ["Q"] = { "qflist", mode = { "n" } },
             },
           },
         },
