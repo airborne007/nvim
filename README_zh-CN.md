@@ -94,7 +94,7 @@ Leader 键设置为 **空格 (Space)**。
 
 | 按键 | 说明 |
 | :--- | :--- |
-| `<Leader>t` | 切换文件浏览器 (Nvim-tree) |
+| `<Leader>t` | 切换文件浏览器 (Snacks Explorer) |
 | `<Leader>e` | 查找文件 (Snacks.picker) |
 | `<Leader>f` | 全局搜索文本 (Snacks.picker) |
 | `<Leader>b` | 查找缓冲区 (Snacks.picker) |

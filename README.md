@@ -96,7 +96,7 @@ The Leader key is set to **Space**.
 
 | Key | Description |
 | :--- | :--- |
-| `<Leader>t` | Toggle File Explorer (Nvim-tree) |
+| `<Leader>t` | Toggle File Explorer (Snacks Explorer) |
 | `<Leader>e` | Find files (Snacks.picker) |
 | `<Leader>f` | Grep text (Snacks.picker) |
 | `<Leader>b` | Find buffers (Snacks.picker) |

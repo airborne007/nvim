@@ -19,7 +19,7 @@
 ## User Interface & Navigation
 - **Statusline**: **lualine.nvim** - A blazing fast and customizable statusline.
 - **Bufferline**: **bufferline.nvim** - A modern tabs/bufferline.
-- **File Explorer**: **nvim-tree.lua** - A fast and highly configurable file tree.
+- **File Explorer**: **Snacks.picker.explorer** - A fast, asynchronous, and fuzzy-findable file explorer integrated into snacks.nvim.
 - **Fuzzy Finder**: **Snacks.picker** - A fast and integrated fuzzy finder.
 - **Fast Navigation**: **flash.nvim** - Lightning-fast movement within the editor.
 - **Keybinding UI**: **which-key.nvim** - Displays available keybindings in a popup.

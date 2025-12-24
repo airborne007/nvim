@@ -32,8 +32,9 @@ extension.add_extension({
     end,
 })
 
--- Example of disabling a core plugin
-extension.disable_plugin("nvim-tree/nvim-tree.lua")
+    -- Disable specific plugins if needed
+    -- extension.disable_plugin("some-plugin-name")
+
 
 -- Example of overriding a core plugin's configuration
 extension.override_plugin_config("nvim-lualine/lualine.nvim", function(plugin)
