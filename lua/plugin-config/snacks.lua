@@ -26,6 +26,17 @@ return {
       picker = {
         enabled = true,
         ui_select = true, -- replace vim.ui.select
+        sources = {
+          explorer = {
+            hidden = true,     -- Show hidden files
+            ignored = true,    -- Show ignored files
+            diagnostics = false, -- Hide diagnostic icons
+            git_status = true,
+            jump = { close = true }, -- Auto close after picking a file
+            preview = false,   -- Disable preview
+            layout = { preset = "sidebar", position = "left" },
+          },
+        },
         win = {
           input = {
             keys = {
