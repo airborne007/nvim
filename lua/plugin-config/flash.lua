@@ -1,6 +1,6 @@
 local M = {
   "folke/flash.nvim",
-  event = "VeryLazy",
+  event = "BufReadPost",
   opts = {
     label = {
       uppercase = false,

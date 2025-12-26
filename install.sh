@@ -60,7 +60,7 @@ check_yay() {
 install_packages() {
     local packages=(
         # Core
-        neovim git make gcc ripgrep fd
+        neovim make gcc ripgrep fd
         # Runtimes
         go rustup python nodejs npm
         # Extras

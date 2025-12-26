@@ -35,6 +35,13 @@ return {
             jump = { close = true }, -- Auto close after picking a file
             preview = false,   -- Disable preview
             layout = { preset = "sidebar", position = "left" },
+            win = {
+              list = {
+                keys = {
+                  ["h"] = "edit_split",
+                }
+              }
+            },
           },
         },
         win = {
@@ -42,10 +49,13 @@ return {
             keys = {
               ["<c-u>"] = { "preview_scroll_up", mode = { "i", "n" } },
               ["<c-d>"] = { "preview_scroll_down", mode = { "i", "n" } },
-              ["s"] = { "edit_split", mode = { "n" } },
-              ["v"] = { "edit_vsplit", mode = { "n" } },
               ["<a-q>"] = { "qflist", mode = { "i", "n" } },
               ["Q"] = { "qflist", mode = { "n" } },
+            },
+          },
+          list = {
+            keys = {
+              ["v"] = "edit_vsplit",
             },
           },
         },

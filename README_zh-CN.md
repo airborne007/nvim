@@ -47,7 +47,7 @@
 ```bash
 git clone https://github.com/airborne007/nvim.git ~/projects/nvim
 cd ~/projects/nvim
-./install.sh
+make install
 ```
 
 该脚本将自动执行以下操作：
@@ -58,7 +58,7 @@ cd ~/projects/nvim
 
 如需卸载：
 ```bash
-./uninstall.sh
+make uninstall
 ```
 
 ### 手动安装 (其他发行版)
@@ -86,6 +86,14 @@ cd ~/projects/nvim
 
     *首次启动时，Lazy.nvim 会自动下载并安装所有插件。安装完成后请重启 Neovim 以确保生效。*
 
+### 📋 关于剪贴板支持
+
+Neovim 需要外部工具来实现与系统剪贴板的交互（即 `"+y`, `"+p`）。
+
+- **Linux (X11):** 需要 `xclip` 或 `xsel`（安装脚本会自动安装）
+- **Linux (Wayland):** 需要 `wl-clipboard`（安装脚本会自动安装）
+- **WSL2:** 如果你想与 Windows 剪贴板同步，请参考 [wsl-clipboard](https://github.com/memoryInject/wsl-clipboard)
+
 ## ⌨️ 常用快捷键
 
 Leader 键设置为 **空格 (Space)**。
@@ -94,7 +102,7 @@ Leader 键设置为 **空格 (Space)**。
 
 | 按键 | 说明 |
 | :--- | :--- |
-| `<Leader>t` | 切换文件浏览器 (Snacks Explorer) |
+| `<F3>` | 切换文件浏览器 (Snacks Explorer) |
 | `<Leader>e` | 查找文件 (Snacks.picker) |
 | `<Leader>f` | 全局搜索文本 (Snacks.picker) |
 | `<Leader>b` | 查找缓冲区 (Snacks.picker) |

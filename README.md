@@ -49,7 +49,7 @@ If you are on Arch Linux or its derivatives (Manjaro, EndeavourOS, etc.), you ca
 ```bash
 git clone https://github.com/airborne007/nvim.git ~/projects/nvim
 cd ~/projects/nvim
-./install.sh
+make install
 ```
 
 The script will:
@@ -60,7 +60,7 @@ The script will:
 
 To uninstall:
 ```bash
-./uninstall.sh
+make uninstall
 ```
 
 ### Manual Installation (Other Distributions)
@@ -88,6 +88,14 @@ To uninstall:
 
     *Lazy.nvim will automatically install all plugins on the first launch. Restart Neovim after the installation is complete.*
 
+### 📋 Clipboard Support
+
+Neovim needs external tools to communicate with the system clipboard (`"+y`, `"+p`).
+
+- **Linux (X11):** `xclip` or `xsel` (Installed automatically by the script)
+- **Linux (Wayland):** `wl-clipboard` (Installed automatically by the script)
+- **WSL2:** Please refer to [wsl-clipboard](https://github.com/memoryInject/wsl-clipboard) for syncing with Windows.
+
 ## ⌨️ Keybindings
 
 The Leader key is set to **Space**.
@@ -96,7 +104,7 @@ The Leader key is set to **Space**.
 
 | Key | Description |
 | :--- | :--- |
-| `<Leader>t` | Toggle File Explorer (Snacks Explorer) |
+| `<F3>` | Toggle File Explorer (Snacks Explorer) |
 | `<Leader>e` | Find files (Snacks.picker) |
 | `<Leader>f` | Grep text (Snacks.picker) |
 | `<Leader>b` | Find buffers (Snacks.picker) |

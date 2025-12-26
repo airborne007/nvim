@@ -154,7 +154,7 @@ local pluginKeys = {}
 -- ============================================ 
 -- File Explorer (Snacks.nvim)
 -- ============================================ 
-map('n', '<leader>t', function() Snacks.picker.explorer() end, {
+map('n', '<F3>', function() Snacks.picker.explorer() end, {
   noremap = true,
   silent = true,
   desc = "Toggle file explorer"
