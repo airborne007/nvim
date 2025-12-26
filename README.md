@@ -10,6 +10,7 @@ A highly modular, feature-rich, and blazing fast Neovim configuration crafted fo
 - **🧩 Modular Architecture:** Clean code structure, easy to customize and extend.
 - **🧠 Intelligent Coding:**
     - Full **LSP** support (Go, Rust, Python, Lua, Bash, JSON).
+    - **DAP** integration (Go with Delve, Python with Debugpy) for professional debugging.
     - **Blink.cmp** for high-performance auto-completion.
     - **Treesitter** for better syntax highlighting and code navigation.
     - **Trouble.nvim** for organized diagnostics.
@@ -34,8 +35,8 @@ Before installing, ensure you have the following requirements:
 - **Nerd Font** (recommended for icons)
 - **C Compiler** (gcc/clang, required for Treesitter parsers)
 - **Language Servers:**
-    - **Go:** `gopls`
-    - **Python:** `pylsp` or `pyright`
+    - **Go:** `gopls` and `delve` (for debugging)
+    - **Python:** `pylsp`/`pyright` and `debugpy` (for debugging)
     - **Rust:** `rust-analyzer`
     - **Lua:** `lua-language-server`
     - **Node.js:** (required for some LSPs like `bashls`, `jsonls`)
@@ -131,6 +132,18 @@ The Leader key is set to **Space**.
 | `<Leader>a` | Code Action |
 | `<Leader>=` | Format code |
 | `<Leader>xx` | Toggle Diagnostics (Trouble) |
+
+### 🐞 Debugging (DAP)
+
+| Key | Description |
+| :--- | :--- |
+| `<F5>` | Start / Continue |
+| `<F9>` | Toggle Breakpoint |
+| `<F10>` | Step Over |
+| `<F11>` | Step Into |
+| `<F12>` | Step Out |
+| `<Leader>du` | Toggle Debug UI |
+| `<Leader>dt` | Terminate Session |
 
 ### 🛡️ Git
 

@@ -316,6 +316,49 @@ map("n", "<leader>xr", function() require("trouble").toggle("lsp_references") en
 
 
 -- ============================================ 
+-- DAP (Debugger) Keybindings
+-- ============================================ 
+-- Standard function keys for debugging
+map("n", "<F5>", function() require("dap").continue() end, {
+  noremap = true,
+  silent = true,
+  desc = "Debug: Start / Continue"
+})
+map("n", "<F9>", function() require("dap").toggle_breakpoint() end, {
+  noremap = true,
+  silent = true,
+  desc = "Debug: Toggle Breakpoint"
+})
+map("n", "<F10>", function() require("dap").step_over() end, {
+  noremap = true,
+  silent = true,
+  desc = "Debug: Step Over"
+})
+map("n", "<F11>", function() require("dap").step_into() end, {
+  noremap = true,
+  silent = true,
+  desc = "Debug: Step Into"
+})
+map("n", "<F12>", function() require("dap").step_out() end, {
+  noremap = true,
+  silent = true,
+  desc = "Debug: Step Out"
+})
+map("n", "<leader>dt", function() require("dap").terminate() end, {
+  noremap = true,
+  silent = true,
+  desc = "Debug: Terminate"
+})
+
+-- Leader-based mappings for better discoverability
+map("n", "<leader>du", function() require("dapui").toggle() end, {
+  noremap = true,
+  silent = true,
+  desc = "Debug: Toggle UI"
+})
+
+
+-- ============================================ 
 -- LSP Related Keybindings
 -- ============================================ 
 pluginKeys.maplsp = function(mapbuf)

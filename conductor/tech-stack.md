@@ -8,6 +8,7 @@
 
 ## Intelligent Coding
 - **Completion Engine**: **blink.cmp** - A high-performance completion engine.
+- **Debugger (DAP)**: **nvim-dap** with **nvim-dap-ui**, **nvim-dap-virtual-text**, and **mason-nvim-dap**.
 - **Language Server Protocol (LSP)**: Integrated support for multiple languages:
     - **Go**: `gopls`
     - **Rust**: `rust-analyzer`
