@@ -153,7 +153,7 @@ local lang_specific_group = api.nvim_create_augroup('LangSpecificSettings', { cl
 -- Merge indentation settings into a single autocommand
 api.nvim_create_autocmd('FileType', {
   group = lang_specific_group,
-  pattern = { 'python', 'ruby', 'javascript', 'html', 'css' },
+  pattern = { 'python', 'ruby', 'javascript', 'html', 'css', 'lua' },
   callback = function()
     local filetype = vim.bo.filetype
     if filetype == 'python' then
