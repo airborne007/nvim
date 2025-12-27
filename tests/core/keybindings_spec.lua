@@ -1,33 +1,28 @@
-local keybindings = require("keybindings")
+-- Test global keybindings in keybindings.lua
+require("keybindings")
 
 describe("keybindings", function()
-  it("should return a table with plugin mapping functions", function()
-    assert.is_table(keybindings)
-    assert.is_function(keybindings.mapgit)
-    assert.is_function(keybindings.maplsp)
-    assert.is_function(keybindings.nvimTreeOnAttach)
-    assert.is_table(keybindings.blinkCmpKeys)
+  it("should have global editing keybindings", function()
+    local map = vim.fn.maparg("<leader><space>", "n", false, true)
+    assert.is_not_nil(map)
+    assert.are.same(":noh<CR>", map.rhs)
   end)
 
-  describe("maplsp", function()
-    it("should call the provided mapper function with LSP keybindings", function()
-      local mappings = {}
-      local fake_mapper = function(mode, key, cmd, opts)
-        table.insert(mappings, { mode = mode, key = key, cmd = cmd, opts = opts })
-      end
+  it("should have window management keybindings", function()
+    -- Check window switching
+    local map_h = vim.fn.maparg("<C-h>", "n", false, true)
+    assert.is_not_nil(map_h)
+    assert.are.same("<C-w>h", map_h.rhs)
 
-      keybindings.maplsp(fake_mapper)
+    -- Check window splitting
+    local map_v = vim.fn.maparg("<leader>v", "n", false, true)
+    assert.is_not_nil(map_v)
+    assert.are.same(":vsplit<CR>", map_v.rhs)
+  end)
 
-      -- Check if some key LSP mappings are present
-      local found_rn = false
-      local found_gd = false
-      for _, m in ipairs(mappings) do
-        if m.key == "<leader>rn" then found_rn = true end
-        if m.key == "gd" then found_gd = true end
-      end
-
-      assert.is_true(found_rn, "Rename mapping not found")
-      assert.is_true(found_gd, "Go to definition mapping not found")
-    end)
+  it("should have visual mode indentation keybindings", function()
+    local map_indent = vim.fn.maparg(">", "v", false, true)
+    assert.is_not_nil(map_indent)
+    assert.are.same(">gv", map_indent.rhs)
   end)
 end)

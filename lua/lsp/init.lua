@@ -82,8 +82,7 @@ mason_lspconfig.setup({
 -- Load Language Server Configuration
 -- ============================================
 
--- Get plugin keybindings
-local pluginKeys = require("keybindings")
+local lsp_utils = require("lsp.utils")
 
 for server_name, server_config in pairs(server_configs) do
   -- Ensure config table exists
@@ -91,11 +90,7 @@ for server_name, server_config in pairs(server_configs) do
 
   -- Add default on_attach function
   if not server_config.on_attach then
-    server_config.on_attach = function(client, bufnr)
-      local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-      -- Set LSP keybindings
-      pluginKeys.maplsp(buf_set_keymap)
-    end
+    server_config.on_attach = lsp_utils.on_attach
   end
 
   -- Load server configuration

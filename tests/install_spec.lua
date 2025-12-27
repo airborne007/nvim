@@ -31,7 +31,7 @@ describe("install.sh", function()
     
     assert.are.equal(0, exit_code)
     assert.matches("Installing dependencies", output)
-    assert.matches("neovim git make gcc ripgrep fd", output)
+    assert.matches("neovim make gcc ripgrep fd", output)
     assert.matches("go rustup python nodejs npm", output)
     assert.matches("python%-pynvim xclip", output)
   end)

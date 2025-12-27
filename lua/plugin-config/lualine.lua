@@ -1,9 +1,6 @@
-local M = {
-  'nvim-lualine/lualine.nvim'
-}
-
-function M.config()
-  require('lualine').setup {
+return {
+  'nvim-lualine/lualine.nvim',
+  opts = {
     sections = {
       lualine_c = {
         {
@@ -14,6 +11,4 @@ function M.config()
       }
     }
   }
-end
-
-return M
+}

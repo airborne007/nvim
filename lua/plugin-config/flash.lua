@@ -1,4 +1,4 @@
-local M = {
+return {
   "folke/flash.nvim",
   event = "BufReadPost",
   opts = {
@@ -22,5 +22,3 @@ local M = {
     { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
   },
 }
-
-return M

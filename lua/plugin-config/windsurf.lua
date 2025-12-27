@@ -1,6 +1,4 @@
-local M = {
+return {
   'Exafunction/windsurf.vim',
-  event = 'BufEnter'
+  event = 'BufEnter',
 }
-
-return M
