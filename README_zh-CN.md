@@ -18,10 +18,10 @@
     - **Snacks.picker.explorer** 文件资源管理器。
     - **Flash.nvim** 光标快速跳转移动。
 - **🛡️ Git 集成：**
-    - **Gitsigns** 实时显示代码变动。
+    - **Gitsigns** 提供行内 Blame、代码块预览/暂存/重置。
     - 自定义 **Git History** 查看器。
 - **💻 终端体验：** **Snacks.nvim** 悬浮终端，随时调出命令行。
-- **🎨 精美 UI：** 集成 `lualine`, `bufferline` 和 `which-key`，提供美观实用的界面。
+- **🎨 精美 UI：** 集成现代化 **lualine** (全局状态、LSP 信息)、**bufferline** 和 **which-key**。
 
 ## 🛠️ 前置要求
 
@@ -131,6 +131,13 @@ Leader 键设置为 **空格 (Space)**。
 | `<Leader>=` | 代码格式化 |
 | `<Leader>xx` | 打开诊断面板 (Trouble) |
 
+### 🌳 代码选区 (Treesitter)
+
+| 按键 | 说明 |
+| :--- | :--- |
+| `<Enter>` | 增量选择 (扩大选区) |
+| `<Backspace>` | 缩小选区 |
+
 ### 🐞 调试 (DAP)
 
 | 按键 | 说明 |
@@ -148,8 +155,12 @@ Leader 键设置为 **空格 (Space)**。
 | 按键 | 说明 |
 | :--- | :--- |
 | `]c` / `[c` | 跳转到 下一个 / 上一个 变更块 |
-| `<Leader>gh` | 查看 Git 历史 |
-| `<Leader>gs` | 查看 Git 状态 |
+| `<Leader>gl` | 查看 Git 历史 |
+| `<Leader>gs` | 查看 Git 状态 (Snacks) |
+| `<Leader>gp` | 预览当前变更块 (Hunk) |
+| `<Leader>gS` | 暂存当前变更块 |
+| `<Leader>gr` | 重置当前变更块 (撤销修改) |
+| `<Leader>gb` | 查看行 Blame 信息 |
 
 ### ⚡ 其他工具
 

@@ -10,16 +10,16 @@ return {
       additional_vim_regex_highlighting = false
     },
     incremental_selection = {
-      enable = false,
+      enable = true,
       keymaps = {
-        init_selection = '<CR>',
-        node_incremental = '<CR>',
-        node_decremental = '<BS>',
-        scope_incremental = '<TAB>',
+        init_selection = '<CR>',      -- Start selection with Enter
+        node_incremental = '<CR>',    -- Expand selection with Enter
+        node_decremental = '<BS>',    -- Shrink selection with Backspace
+        scope_incremental = '<TAB>',  -- Expand to scope (rarely used but handy)
       }
     },
     indent = {
-      enable = false
+      enable = true -- Enable based indentation
     }
   }
 }
