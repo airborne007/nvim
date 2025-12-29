@@ -15,9 +15,9 @@ function M.smart_git_history()
     end
   else
     if _G.Snacks and _G.Snacks.picker then
-      _G.Snacks.picker.git_log()
+      _G.Snacks.picker.git_log_file()
     else
-      vim.notify("Snacks.picker.git_log is not available", vim.log.levels.ERROR)
+      vim.notify("Snacks.picker.git_log_file is not available", vim.log.levels.ERROR)
     end
   end
 end

@@ -1,5 +1,3 @@
-local system = require("core.git_wrapper").system
-
 describe("install.sh", function()
   it("should exist and be executable", function()
     local code = os.execute("test -x ./install.sh")

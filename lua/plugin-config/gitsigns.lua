@@ -87,9 +87,11 @@ return {
       map('v', '<leader>gS', function() gitsigns.stage_hunk {vim.fn.line('.'), vim.fn.line('v')} end, { desc = "Stage hunk" })
       map('v', '<leader>gr', function() gitsigns.reset_hunk {vim.fn.line('.'), vim.fn.line('v')} end, { desc = "Reset hunk" })
 
-      -- Smart Git History (Re-mapped to <leader>gl for Log)
-      local git_wrapper = require('core.git_wrapper')
-      map({ "n", "v" }, "<leader>gl", git_wrapper.smart_git_history, { desc = "Git history (Smart)" })
+        -- Custom keybinding: Smart Git history
+        -- Uses Snacks.picker.git_log() in normal mode (file history)
+        -- Uses Snacks.picker.git_log_line() in visual mode (line history)
+        local git_wrapper = require('utils.git')
+        map({ "n", "v" }, "<leader>gl", git_wrapper.smart_git_history, { desc = "Git history (Smart)" })
 
       -- Text Object (Select inside hunk)
       map({'o', 'x'}, 'ih', ':<C-U>Gitsigns select_hunk<CR>', { desc = "Select hunk" })

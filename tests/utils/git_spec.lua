@@ -22,14 +22,15 @@ describe('Git Wrapper', function()
     snacks_mock = {
       picker = {
         git_log = stub(),
+        git_log_file = stub(),
         git_log_line = stub()
       }
     }
     _G.Snacks = snacks_mock
 
     -- Reload the module
-    package.loaded['core.git_wrapper'] = nil
-    git_wrapper = require('core.git_wrapper')
+    package.loaded['utils.git'] = nil
+    git_wrapper = require('utils.git')
   end)
 
   after_each(function()
@@ -42,13 +43,13 @@ describe('Git Wrapper', function()
     _G.Snacks = nil
   end)
 
-  it('should call snacks.picker.git_log in normal mode', function()
+  it('should call snacks.picker.git_log_file in normal mode', function()
     vim.fn.mode.returns('n')
     vim.fn.expand.returns('/path/to/file')
 
     git_wrapper.smart_git_history()
 
-    assert.stub(snacks_mock.picker.git_log).was_called()
+    assert.stub(snacks_mock.picker.git_log_file).was_called()
     assert.stub(snacks_mock.picker.git_log_line).was_not_called()
   end)
 
@@ -59,7 +60,7 @@ describe('Git Wrapper', function()
     git_wrapper.smart_git_history()
 
     assert.stub(snacks_mock.picker.git_log_line).was_called()
-    assert.stub(snacks_mock.picker.git_log).was_not_called()
+    assert.stub(snacks_mock.picker.git_log_file).was_not_called()
   end)
 
   it('should call snacks.picker.git_log_line in visual line mode', function()
@@ -69,6 +70,6 @@ describe('Git Wrapper', function()
     git_wrapper.smart_git_history()
 
     assert.stub(snacks_mock.picker.git_log_line).was_called()
-    assert.stub(snacks_mock.picker.git_log).was_not_called()
+    assert.stub(snacks_mock.picker.git_log_file).was_not_called()
   end)
 end)
