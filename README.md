@@ -140,6 +140,15 @@ The Leader key is set to **Space**.
 | `<Enter>` | Incremental Selection (Expand) |
 | `<Backspace>` | Shrink Selection |
 
+### 🌯 Surround (nvim-surround)
+
+| Key | Description |
+| :--- | :--- |
+| `ys{motion}{char}` | Add surround (e.g. `ysiw"`) |
+| `ds{char}` | Delete surround (e.g. `ds"`) |
+| `cs{old}{new}` | Change surround (e.g. `cs"'`) |
+| `gS{char}` | Add surround (Visual mode) |
+
 ### 🐞 Debugging (DAP)
 
 | Key | Description |
@@ -157,7 +166,7 @@ The Leader key is set to **Space**.
 | Key | Description |
 | :--- | :--- |
 | `]c` / `[c` | Next / Previous Hunk |
-| `<Leader>gl` | Show Git History |
+| `<Leader>gl` | Show Git History (File in Normal / Line in Visual) |
 | `<Leader>gs` | Show Git Status (Snacks) |
 | `<Leader>gp` | Preview Hunk |
 | `<Leader>gS` | Stage Hunk |
