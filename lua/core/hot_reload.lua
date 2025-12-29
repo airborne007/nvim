@@ -17,7 +17,7 @@ local watched_files = {
 
 -- Stores the modules to reload
 local modules_to_reload = {
-  'basic',
+  'core.config',
   'keybindings',
   'auto-command',
   'core.extension',
@@ -78,7 +78,7 @@ local function reload_all_modules()
   -- Reload all modules
   local success, err = pcall(function()
     -- Reload basic configuration
-    require('basic')
+    require('core.config').setup()
     
     -- Reload core extension module
     require('core.extension')
@@ -156,7 +156,7 @@ local function setup_watchers()
         reload_module(module_name)
         
         -- If a core module is modified, reload all related modules
-        if module_name:match('^core%.') or module_name:match('^basic$') or module_name:match('^plugins$') then
+        if module_name:match('^core%.') or module_name:match('^plugins$') then
           vim.notify("Core configuration modified, reloading all configurations...", vim.log.levels.INFO)
           reload_all_modules()
         end
