@@ -54,7 +54,7 @@ make install
 ```
 
 The script will:
-- Check for or install `yay` (AUR helper).
+- Check for or install `paru` (AUR helper).
 - Install all necessary system packages (Neovim, LSPs, Runtimes, etc.).
 - Backup your existing `~/.config/nvim` if it exists.
 - Link the configuration to `~/.config/nvim`.

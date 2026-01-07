@@ -36,20 +36,20 @@ check_os() {
     fi
 }
 
-check_yay() {
-    if command -v yay >/dev/null 2>&1; then
-        log_info "yay is already installed."
+check_paru() {
+    if command -v paru >/dev/null 2>&1; then
+        log_info "paru is already installed."
     else
-        log_info "yay not found. Installing yay from AUR..."
+        log_info "paru not found. Installing paru from AUR..."
         if [ "$DRY_RUN" = "true" ]; then
-            log_info "[DRY-RUN] Would install yay"
+            log_info "[DRY-RUN] Would install paru"
             return
         fi
         
         sudo pacman -S --needed --noconfirm base-devel git
         
         local temp_dir=$(mktemp -d)
-        git clone https://aur.archlinux.org/yay.git "$temp_dir"
+        git clone https://aur.archlinux.org/paru.git "$temp_dir"
         cd "$temp_dir"
         makepkg -si --noconfirm
         cd - >/dev/null
@@ -69,11 +69,11 @@ install_packages() {
 
     log_info "Installing dependencies..."
     if [ "$DRY_RUN" = "true" ]; then
-        log_info "[DRY-RUN] Would run: yay -S --needed --noconfirm ${packages[*]}"
+        log_info "[DRY-RUN] Would run: paru -S --needed --noconfirm ${packages[*]}"
         return
     fi
     
-    yay -S --needed --noconfirm "${packages[@]}"
+    paru -S --needed --noconfirm "${packages[@]}"
 }
 
 backup_config() {
@@ -104,7 +104,7 @@ link_config() {
 
 main() {
     check_os
-    check_yay
+    check_paru
     install_packages
     backup_config
     link_config

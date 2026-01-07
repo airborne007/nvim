@@ -52,7 +52,7 @@ make install
 ```
 
 该脚本将自动执行以下操作：
-- 检测并安装 `yay` (AUR 助手)。
+- 检测并安装 `paru` (AUR 助手)。
 - 安装所有必要的系统包 (Neovim, LSPs, 运行时等)。
 - 备份现有的 `~/.config/nvim` (如果存在)。
 - 将配置链接到 `~/.config/nvim`。
