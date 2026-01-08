@@ -20,10 +20,11 @@ A highly modular, feature-rich, and blazing fast Neovim configuration crafted fo
     - **Snacks.picker.explorer** for file system exploration.
     - **Flash.nvim** for lightning-fast movement.
 - **🛡️ Git Integration:**
+    - **Lazygit** integration for powerful TUI management.
     - **Gitsigns** for inline blame, hunk preview/stage/reset.
     - Custom **Git History** viewer.
 - **💻 Terminal:** **Snacks.nvim** floating terminal for quick command-line access.
-- **🎨 UI:** Aesthetic interface with modern **lualine** (global status, LSP info), **bufferline**, and **which-key** support.
+- **🎨 UI:** Aesthetic interface with modern **lualine** (global status, LSP info), **fidget.nvim** (LSP progress), **bufferline**, and **which-key** support.
 
 ## 🛠️ Prerequisites
 
@@ -166,10 +167,10 @@ The Leader key is set to **Space**.
 | Key | Description |
 | :--- | :--- |
 | `]c` / `[c` | Next / Previous Hunk |
+| `<Leader>gg` | Open Lazygit |
 | `<Leader>gl` | Show Git History (File in Normal / Line in Visual) |
-| `<Leader>gs` | Show Git Status (Snacks) |
 | `<Leader>gp` | Preview Hunk |
-| `<Leader>gS` | Stage Hunk |
+| `<Leader>gs` | Stage Hunk |
 | `<Leader>gr` | Reset Hunk |
 | `<Leader>gb` | Blame Line |
 

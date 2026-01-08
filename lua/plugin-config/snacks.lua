@@ -6,15 +6,16 @@ return {
     keys = {
       { "<F3>", function() Snacks.picker.explorer() end, desc = "Toggle file explorer" },
       { "<A-d>", function() Snacks.terminal.toggle() end, desc = "Toggle floating terminal", mode = { "n", "t" } },
+      { "<leader>gg", function() Snacks.lazygit() end, desc = "Lazygit" },
       { "<leader>e", function() Snacks.picker.files() end, desc = "Find files" },
       { "<leader>f", function() Snacks.picker.grep() end, desc = "Grep text" },
       { "<leader>b", function() Snacks.picker.buffers() end, desc = "Find buffers" },
       { "<leader>s", function() Snacks.picker.lsp_symbols() end, desc = "Find document symbols" },
-      { "<leader>gs", function() Snacks.picker.git_status() end, desc = "Git status" },
       { "<leader>sd", function() Snacks.picker.diagnostics() end, desc = "Search diagnostics" },
       { "<leader>qf", function() Snacks.picker.qflist() end, desc = "Quickfix list (Snacks)" },
     },
     opts = {
+      lazygit = { enabled = true },
       terminal = { 
         enabled = true,
         win = {
