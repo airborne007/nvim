@@ -3,7 +3,7 @@ Keybindings configuration file
 Keybindings are grouped by function to improve readability and maintainability
 --]]
 
--- Set leader key to space
+-- Set leader keys (Must be set before any plugin that uses them)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 

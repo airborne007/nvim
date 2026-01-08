@@ -1,6 +1,10 @@
--- Set leader keys before loading lazy.nvim
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+-- Enable the experimental Lua module loader for faster startup
+if vim.loader then
+  vim.loader.enable()
+end
+
+-- Load keybindings and set leader keys (Must be before plugins)
+require('keybindings')
 
 -- Modular core configuration
 require('core.config').setup()
@@ -28,9 +32,6 @@ if vim.loop.fs_stat(extensions_dir) then
         end
     end
 end
-
--- Key mappings
-require('keybindings')
 
 -- Autocmd
 require("auto-command")
