@@ -12,13 +12,8 @@ local opts = {
         -- Setup your lua path
         path = runtime_path,
       },
-      diagnostics = {
-        -- Get the language server to recognize the `vim` global
-        globals = { "vim" },
-      },
       workspace = {
-        -- Make the server aware of Neovim runtime files
-        library = vim.api.nvim_get_runtime_file("", true),
+        ignoreDir = { ".git", "node_modules", "build", "dist", "tmp", "vendor" },
         checkThirdParty = false,
       },
       -- Do not send telemetry data containing a randomized but unique identifier
