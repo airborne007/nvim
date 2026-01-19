@@ -6,9 +6,7 @@ return {
       "nvim-treesitter/nvim-treesitter",
       {
         "junegunn/fzf",
-        build = function()
-          vim.fn["fzf#install"]()
-        end,
+        build = "./install --bin",
       },
     },
     opts = {
