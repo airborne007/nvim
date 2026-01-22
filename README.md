@@ -119,8 +119,8 @@ The Leader key is set to **Space**.
 | `<Ctrl-h/j/k/l>` | Navigate windows |
 | `<Leader>q` / `<Leader>w` | Previous / Next buffer |
 | `<Leader>c` | Close current buffer |
-| `sc` | Close current window |
-| `so` | Close other windows |
+| `,c` | Close current window |
+| `,o` | Close other windows |
 
 ### 🧠 LSP & Coding
 

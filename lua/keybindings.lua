@@ -85,12 +85,12 @@ map("n", "<leader>v", ":vsplit<CR>", {
 })
 
 -- Close window
-map("n", "sc", "<C-w>c", {
+map("n", ",c", "<C-w>c", {
   noremap = true,
   silent = true,
   desc = "Close current window"
 })
-map("n", "so", "<C-w>o", {
+map("n", ",o", "<C-w>o", {
   noremap = true,
   silent = true,
   desc = "Close other windows"
@@ -144,4 +144,3 @@ map("n", "s=", "<C-w>=", {
   silent = true,
     desc = "Equalize window sizes"
   })
-  
