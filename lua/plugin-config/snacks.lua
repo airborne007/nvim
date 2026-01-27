@@ -51,6 +51,7 @@ return {
               list = {
                 keys = {
                   ["h"] = "edit_split",
+                  ["l"] = { { "pick_win", "jump" }, mode = { "n", "i" } },
                 }
               }
             },
