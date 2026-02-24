@@ -44,7 +44,7 @@ local function load_theme()
     if name then name = name:gsub("%s+", "") end
     file:close()
   end
-  
+
   if name and themes[name] then
     -- Apply the saved theme
     local ok, err = pcall(themes[name])
@@ -53,7 +53,7 @@ local function load_theme()
     end
     return
   end
-  
+
   -- Fallback default
   pcall(themes["tokyonight"])
 end
@@ -62,11 +62,11 @@ end
 function M.pick_theme()
   local theme_names = vim.tbl_keys(themes)
   table.sort(theme_names)
-  
+
   -- Use vim.ui.select (which Snacks.picker overrides if installed)
   vim.ui.select(theme_names, {
     prompt = "Select Theme (Custom Extension)",
-    format_item = function(item) 
+    format_item = function(item)
       return item:gsub("^%l", string.upper) -- Capitalize first letter for display
     end,
   }, function(selected)

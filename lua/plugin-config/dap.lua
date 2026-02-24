@@ -34,7 +34,7 @@ return {
           end,
         },
       })
-      
+
       require("dap-go").setup({
         -- Additional delve configurations
         delve = {
@@ -56,7 +56,7 @@ return {
           },
         },
       })
-      
+
       -- Python setup
       local mason_path = vim.fn.stdpath("data") .. "/mason/packages/debugpy/venv/bin/python"
       require("dap-python").setup(mason_path)

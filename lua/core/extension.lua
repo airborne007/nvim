@@ -59,7 +59,7 @@ function M.add_extension(extension)
     vim.notify("Plugin extension must include a name field", vim.log.levels.ERROR)
     return false
   end
-  
+
   -- Check if an extension with the same name already exists
   for _, ext in ipairs(extensions) do
     if ext.name == extension.name then
@@ -67,12 +67,12 @@ function M.add_extension(extension)
       return false
     end
   end
-  
+
   -- Set default values
   extension.enabled = extension.enabled ~= false
   extension.dependencies = extension.dependencies or {}
   extension.config = extension.config or function() end
-  
+
   table.insert(extensions, extension)
   return true
 end
@@ -139,17 +139,17 @@ function M.apply_plugin_overrides(plugin)
   if not plugin then
     return nil
   end
-  
+
   local plugin_name = type(plugin) == "string" and plugin or plugin[1]
   if type(plugin_name) == "table" then
     plugin_name = plugin_name[1]
   end
-  
+
   local override = plugin_overrides[plugin_name]
   if not override then
     return plugin
   end
-  
+
   -- Merge configurations
   if type(plugin) == "table" then
     local new_plugin = vim.deepcopy(plugin)
@@ -162,7 +162,7 @@ function M.apply_plugin_overrides(plugin)
       return new_plugin
     end
   end
-  
+
   return plugin
 end
 
@@ -170,10 +170,10 @@ end
 ---@return table List of all enabled plugins
 function M.get_all_plugins()
   local plugins = {}
-  
+
   -- Load core plugins
   local core_plugins = require("plugins")
-  
+
   -- Apply plugin configuration overrides
   for _, plugin in ipairs(core_plugins) do
     if type(plugin) == "table" and plugin[1] then
@@ -186,14 +186,14 @@ function M.get_all_plugins()
       table.insert(plugins, plugin)
     end
   end
-  
+
   -- Add enabled extension plugins
   for _, extension in ipairs(extensions) do
     if extension.enabled then
       table.insert(plugins, extension)
     end
   end
-  
+
   return plugins
 end
 

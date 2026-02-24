@@ -10,12 +10,6 @@ vim.g.maplocalleader = " "
 -- Local variable definitions
 local map = vim.keymap.set  -- Alias for keymap function
 
--- Default keybinding options
-local default_opts = {
-  noremap = true,  -- Non-recursive mapping
-  silent = true    -- Do not show command in command-line
-}
-
 -- Mode descriptions
 -- n: normal_mode
 -- i: insert_mode

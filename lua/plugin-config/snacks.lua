@@ -16,7 +16,7 @@ return {
     },
     opts = {
       lazygit = { enabled = true },
-      terminal = { 
+      terminal = {
         enabled = true,
         win = {
           position = "float",

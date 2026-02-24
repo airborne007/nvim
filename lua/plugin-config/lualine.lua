@@ -89,12 +89,12 @@ return {
           end,
           icon = '🐍',
           cond = function() return vim.bo.filetype == 'python' end,
-          color = { fg = '#ffbc00' }, 
+          color = { fg = '#ffbc00' },
         },
         'encoding',
         'fileformat',
       },
-      lualine_y = { 
+      lualine_y = {
         -- Indentation info
         {
             function()
@@ -106,7 +106,7 @@ return {
                 return type .. ':' .. size
             end
         },
-        'progress' 
+        'progress'
       },
       lualine_z = {
         { 'location', separator = { right = '' }, left_padding = 2 },
