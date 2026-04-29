@@ -63,6 +63,8 @@ install_packages() {
         neovim make gcc ripgrep fd
         # Runtimes
         go rustup python nodejs npm
+        # Treesitter
+        tree-sitter-cli
         # Extras
         python-pynvim xclip wl-clipboard
     )

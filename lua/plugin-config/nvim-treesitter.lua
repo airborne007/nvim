@@ -1,25 +1,22 @@
 return {
   'nvim-treesitter/nvim-treesitter',
+  lazy = false,
   build = ':TSUpdate',
-  event = { "BufReadPost", "BufNewFile" },
-  main = 'nvim-treesitter.configs',
-  opts = {
-    ensure_installed = { "vim", "lua", "typescript", "python", "go", "gomod", "gowork", "bash", "yaml", "make" },
-    highlight = {
-      enable = true,
-      additional_vim_regex_highlighting = false
-    },
-    incremental_selection = {
-      enable = true,
-      keymaps = {
-        init_selection = '<CR>',      -- Start selection with Enter
-        node_incremental = '<CR>',    -- Expand selection with Enter
-        node_decremental = '<BS>',    -- Shrink selection with Backspace
-        scope_incremental = '<TAB>',  -- Expand to scope (rarely used but handy)
-      }
-    },
-    indent = {
-      enable = true -- Enable based indentation
-    }
-  }
+  config = function()
+    require('nvim-treesitter').setup()
+
+    vim.api.nvim_create_autocmd('FileType', {
+      callback = function(args)
+        if vim.treesitter.language.get_lang(vim.bo[args.buf].filetype) then
+          pcall(vim.treesitter.start, args.buf)
+        end
+      end,
+    })
+
+    vim.api.nvim_create_autocmd('FileType', {
+      callback = function(args)
+        vim.bo[args.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+      end,
+    })
+  end,
 }
