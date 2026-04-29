@@ -30,11 +30,12 @@ A highly modular, feature-rich, and blazing fast Neovim configuration crafted fo
 
 Before installing, ensure you have the following requirements:
 
-- **Neovim** >= **0.9.0** (Recommended: 0.10.0+)
+- **Neovim** >= **0.12.0**
 - **Git** (for plugin management)
 - **Ripgrep** (required for Snacks.picker live grep)
 - **Nerd Font** (recommended for icons)
 - **C Compiler** (gcc/clang, required for Treesitter parsers)
+- **tree-sitter-cli** >= 0.26.1 (required for Treesitter parser compilation)
 - **Language Servers:**
     - **Go:** `gopls` and `delve` (for debugging)
     - **Python:** `pylsp`/`pyright` and `debugpy` (for debugging)
@@ -133,13 +134,6 @@ The Leader key is set to **Space**.
 | `<Leader>a` | Code Action |
 | `<Leader>=` | Format code |
 | `<Leader>xx` | Toggle Diagnostics (Trouble) |
-
-### 🌳 Code Selection (Treesitter)
-
-| Key | Description |
-| :--- | :--- |
-| `<Enter>` | Incremental Selection (Expand) |
-| `<Backspace>` | Shrink Selection |
 
 ### 🌯 Surround (nvim-surround)
 
