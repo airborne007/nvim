@@ -12,6 +12,6 @@ describe("Snacks Picker Keybindings Spec", function()
     
     assert.is_true(found_keys["<leader>e"], "leader-e mapping missing in spec")
     assert.is_true(found_keys["<leader>f"], "leader-f mapping missing in spec")
-    assert.is_true(found_keys["<leader>gs"], "leader-gs mapping missing in spec")
+    assert.is_true(found_keys["<leader>gg"], "leader-gg mapping missing in spec")
   end)
 end)
