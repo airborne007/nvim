@@ -8,7 +8,6 @@
 - **🧩 模块化架构：** 代码结构清晰，易于定制和扩展。
 - **🧠 智能编程：**
     - 完整的 **LSP** 支持 (Go, Rust, Python, Lua, Bash, JSON)。
-    - 集成 **DAP** 调试环境 (Go 使用 Delve, Python 使用 Debugpy)。
     - **Blink.cmp** 提供高性能自动补全。
     - **Treesitter** 提供更精准的语法高亮和代码导航。
     - **Trouble.nvim** 集中管理代码诊断信息。
@@ -34,8 +33,8 @@
 - **Nerd Font** (推荐安装，用于显示图标)
 - **C Compiler** (gcc/clang, Treesitter 解析器编译依赖)
 - **Language Servers (语言服务器):**
-    - **Go:** `gopls` 与 `delve` (调试专用)
-    - **Python:** `pylsp`/`pyright` 与 `debugpy` (调试专用)
+    - **Go:** `gopls`
+    - **Python:** `pylsp`/`pyright`
     - **Rust:** `rust-analyzer`
     - **Lua:** `lua-language-server`
     - **Node.js:** (用于支持 `bashls`, `jsonls` 等)
@@ -148,17 +147,6 @@ Leader 键设置为 **空格 (Space)**。
 | `cs{旧}{新}` | 修改包围 (例如 `cs"'`) |
 | `gS{字符}` | 添加包围 (Visual 模式) |
 
-### 🐞 调试 (DAP)
-
-| 按键 | 说明 |
-| :--- | :--- |
-| `<F5>` | 启动调试 / 继续 (Continue) |
-| `<F9>` | 切换断点 (Toggle Breakpoint) |
-| `<F10>` | 单步跳过 (Step Over) |
-| `<F11>` | 单步进入 (Step Into) |
-| `<F12>` | 单步跳出 (Step Out) |
-| `<Leader>du` | 开启/关闭 调试 UI |
-| `<Leader>dt` | 终止调试会话 |
 
 ### 🛡️ Git 操作
 

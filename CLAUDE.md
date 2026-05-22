@@ -32,11 +32,6 @@ Each plugin gets its own file in `lua/plugin-config/`. Each file returns a lazy.
 - **Auto-format exclusion:** Python, Lua, JavaScript, TypeScript are excluded from auto-format on `BufWritePre`
 - **Go special:** `OrgImports()` runs `gopls` import organization on `BufWritePre`
 
-### DAP
-- Debuggers: Go (Delve) and Python (debugpy via Mason)
-- DAP UI auto-opens on session start, auto-closes on termination
-- Keybindings: F5 (continue), F9 (toggle breakpoint), F10 (step over), F11 (step into), F12 (step out)
-
 ### Filetype indent overrides
 `after/ftplugin/` — 2-space for CSS/HTML/JS/Lua/Ruby, 4-space for Python.
 
