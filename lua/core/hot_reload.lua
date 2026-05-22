@@ -20,7 +20,6 @@ local modules_to_reload = {
   'core.config',
   'keybindings',
   'auto-command',
-  'core.extension',
 }
 
 -- Flag to prevent recursive reloading
@@ -79,9 +78,6 @@ local function reload_all_modules()
   local success, err = pcall(function()
     -- Reload basic configuration
     require('core.config').setup()
-
-    -- Reload core extension module
-    require('core.extension')
 
     -- Reload auto-commands
     require('auto-command')

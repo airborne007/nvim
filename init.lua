@@ -9,14 +9,8 @@ require('keybindings')
 -- Modular core configuration
 require('core.config').setup()
 
--- Core extension module
-require('core.extension')
-
 -- Hot-reload feature
 require('core.hot_reload').setup()
-
--- Security protection mechanism
-require('core.security').setup()
 
 -- Plugin management
 require('plugins')

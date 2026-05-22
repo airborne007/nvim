@@ -8,17 +8,8 @@ local M = {}
 -- Load all configuration modules
 M.setup = function()
   local modules = {
-    'core.history',
-    'core.visual',
-    'core.indent',
-    'core.search',
-    'core.command',
-    'core.file',
-    'core.keyboard',
-    'core.window',
-    'core.completion',
-    'core.style',
-    'core.folding',
+    'core.editor',
+    'core.ui',
     'core.clipboard'
   }
 
