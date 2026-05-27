@@ -5,6 +5,7 @@ return {
     'onsails/lspkind.nvim',
   },
   version = '*',
+  event = 'InsertEnter',
 
   ---@module 'blink.cmp'
   ---@type blink.cmp.Config

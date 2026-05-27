@@ -1,4 +1,4 @@
-function OrgImports(wait_ms)
+local function org_imports(wait_ms)
   local params = vim.lsp.util.make_range_params()
   params.context = { only = { "source.organizeImports" } }
   local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params, wait_ms)
@@ -24,10 +24,17 @@ local opts = {
   },
   on_attach = function(client, bufnr)
     require('lsp.utils').on_attach(client, bufnr)
-    -- Automatically execute goimports
-    vim.cmd("autocmd BufWritePre *.go lua OrgImports(1000)")
-    -- To make your Ctrl+x,Ctrl+o work
-    vim.cmd("autocmd FileType go setlocal omnifunc=v:lua.vim.lsp.omnifunc")
+
+    -- Automatically organize imports on save
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      group = vim.api.nvim_create_augroup("gopls_org_imports", { clear = false }),
+      buffer = bufnr,
+      callback = function() org_imports(1000) end,
+      desc = "gopls: organize imports on save",
+    })
+
+    -- Enable omnifunc for Go completion
+    vim.bo[bufnr].omnifunc = "v:lua.vim.lsp.omnifunc"
   end,
 }
 

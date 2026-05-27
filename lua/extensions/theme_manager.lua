@@ -71,6 +71,17 @@ function M.pick_theme()
     end,
   }, function(selected)
     if selected then
+      -- Ensure the theme plugin is loaded (may be lazy-loaded)
+      local plugin_name = ({
+        onedark = "onedark.nvim",
+        gruvbox = "gruvbox.nvim",
+        everforest = "everforest",
+        tokyonight = "tokyonight.nvim",
+      })[selected]
+      if plugin_name then
+        local lazy_ok, lazy = pcall(require, "lazy")
+        if lazy_ok then lazy.load({ plugins = { plugin_name } }) end
+      end
       themes[selected]()
       save_theme(selected)
       vim.notify("Theme switched to " .. selected, vim.log.levels.INFO)

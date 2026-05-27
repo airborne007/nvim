@@ -1,8 +1,7 @@
 return {
   {
     "folke/snacks.nvim",
-    priority = 1000,
-    lazy = false,
+    event = "VeryLazy",
     keys = {
       { "<F3>", function() Snacks.picker.explorer() end, desc = "Toggle file explorer" },
       { "<A-d>", function() Snacks.terminal.toggle() end, desc = "Toggle floating terminal", mode = { "n", "t" } },
@@ -74,10 +73,6 @@ return {
         },
       },
       select = { enabled = true },
-      scroll = { enabled = true },
-      indent = { enabled = true },
-      scope = { enabled = true },
-      animate = { enabled = true },
       dashboard = {
         enabled = true,
         sections = {
@@ -89,7 +84,6 @@ return {
       },
       quickfile = { enabled = true },
       statuscolumn = { enabled = true },
-      words = { enabled = true },
     },
   },
 }

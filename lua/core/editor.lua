@@ -31,7 +31,7 @@ vim.opt.autoindent = true
 vim.opt.smartindent = true
 
 -- Keyboard & Input
-vim.opt.timeoutlen = 500
+vim.opt.timeoutlen = 300
 vim.opt.updatetime = 300
 vim.opt.whichwrap = "<,>,[,]"
 vim.opt.mouse = "a"

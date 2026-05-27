@@ -1,5 +1,6 @@
 return {
   "j-hui/fidget.nvim",
+  event = "LspAttach",
   opts = {
     -- Options related to LSP progress notification
     progress = {

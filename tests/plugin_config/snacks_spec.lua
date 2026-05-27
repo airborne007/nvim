@@ -39,12 +39,14 @@ describe("snacks.notifier", function()
     assert.is_not_nil(select_info.source:match("snacks"), "vim.ui.select should be hijacked by snacks")
   end)
 
-  it("should have scroll, indent, and scope enabled in config", function()
+  it("should not enable decorative modules (scroll, indent, scope, animate, words) for lightweight startup", function()
     local snacks_config = require("plugin-config.snacks")[1].opts
-    
-    assert.is_true(snacks_config.scroll and snacks_config.scroll.enabled, "scroll should be enabled in config")
-    assert.is_true(snacks_config.indent and snacks_config.indent.enabled, "indent should be enabled in config")
-    assert.is_true(snacks_config.scope and snacks_config.scope.enabled, "scope should be enabled in config")
+
+    assert.is_nil(snacks_config.scroll, "scroll should not be configured (disabled for lightweight startup)")
+    assert.is_nil(snacks_config.indent, "indent should not be configured (disabled for lightweight startup)")
+    assert.is_nil(snacks_config.scope, "scope should not be configured (disabled for lightweight startup)")
+    assert.is_nil(snacks_config.animate, "animate should not be configured (disabled for lightweight startup)")
+    assert.is_nil(snacks_config.words, "words should not be configured (disabled for lightweight startup)")
   end)
 
   it("should have dashboard enabled in config", function()

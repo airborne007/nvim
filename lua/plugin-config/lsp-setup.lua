@@ -2,6 +2,7 @@ return {
   {
     "williamboman/mason.nvim",
     description = "Package manager for LSP servers and tools",
+    cmd = "Mason",
     build = ":MasonUpdate",
   },
   {
