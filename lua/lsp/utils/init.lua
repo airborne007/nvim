@@ -30,10 +30,10 @@ function M.on_attach(client, bufnr)
   map('n', 'go', vim.diagnostic.open_float, "Show diagnostics")
 
   -- Go to previous diagnostic
-  map('n', 'gp', vim.diagnostic.goto_prev, "Previous diagnostic")
+  map('n', 'gp', function() vim.diagnostic.jump({ count = -1 }) end, "Previous diagnostic")
 
   -- Go to next diagnostic
-  map('n', 'gn', vim.diagnostic.goto_next, "Next diagnostic")
+  map('n', 'gn', function() vim.diagnostic.jump({ count = 1 }) end, "Next diagnostic")
 
   -- Format code
   map('n', '<leader>=', function() vim.lsp.buf.format({ async = true }) end, "Format code")
