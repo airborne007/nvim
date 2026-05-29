@@ -11,6 +11,12 @@ return {
   opts = {
     enabled = true,
     max_file_size = 10.0,
+    win_options = {
+      wrap = {
+        default = false,
+        rendered = true,
+      },
+    },
     heading = {
       icons = { '󰲡 ', '󰲣 ', '󰲥 ', '󰲧 ', '󰲩 ', '󰲫 ' },
     },
