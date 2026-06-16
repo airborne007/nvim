@@ -15,7 +15,11 @@ return {
 
     vim.api.nvim_create_autocmd('FileType', {
       callback = function(args)
-        vim.bo[args.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+        -- Skip indentexpr for languages that use LSP formatters or built-in indent
+        local skip = { 'go', 'rust', 'python', 'lua', 'sh' }
+        if not vim.tbl_contains(skip, vim.bo[args.buf].filetype) then
+          vim.bo[args.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+        end
       end,
     })
   end,

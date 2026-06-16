@@ -29,6 +29,7 @@ vim.opt.expandtab = true
 vim.opt.shiftround = true
 vim.opt.autoindent = true
 vim.opt.smartindent = true
+vim.opt.cindent = true
 
 -- Keyboard & Input
 vim.opt.timeoutlen = 300
